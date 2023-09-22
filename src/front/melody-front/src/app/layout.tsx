@@ -52,7 +52,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
         </div>
       </header>
       {children}
-      {/*<Footer />*/}
+      <Footer />
       </body>
       </html>
   );
