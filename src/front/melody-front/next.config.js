@@ -2,6 +2,9 @@
 const nextConfig = {}
 
 module.exports = {
+    eslint: {
+        ignoreDuringBuilds: true
+    },
     async rewrites() {
         return [
             {

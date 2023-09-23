@@ -36,24 +36,24 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
-      <html lang="en">
-      <body className={inter.className}>
-      <header>
-        <div>
-          <ul className="flex bg-slate-500">
-            {links.map(({ href, key }) => (
-                <li className="flex-auto" key={key}>
-                  <Link href={href}>
-                    <a>{key}</a>
-                  </Link>
-                </li>
-            ))}
-          </ul>
-        </div>
-      </header>
-      {children}
-      <Footer />
-      </body>
-      </html>
+    <html lang="en">
+    <body className={inter.className}>
+    <header>
+      <div>
+        <ul className="flex bg-slate-500">
+          {links.map(({ href, key }) => (
+              <li className="flex-auto" key={key}>
+                <Link href={href}>
+                  {key}
+                </Link>
+              </li>
+          ))}
+        </ul>
+      </div>
+    </header>
+    {children}
+    <Footer />
+    </body>
+    </html>
   );
 }
