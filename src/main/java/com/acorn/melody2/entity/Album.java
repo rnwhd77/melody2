@@ -42,10 +42,10 @@ public class Album {
     private String albumHashtags;
 
     @Column(name = "Solo_Artist_ID")
-    private int soloArtistId;
+    private Integer soloArtistId;
 
     @Column(name = "Group_Artist_ID")
-    private int groupArtistId;
+    private Integer groupArtistId;
 
     @ManyToOne
     @JoinColumn(name = "Solo_Artist_ID", referencedColumnName = "SoloArtist_ID", insertable = false, updatable = false)
@@ -54,6 +54,10 @@ public class Album {
     @ManyToOne
     @JoinColumn(name = "Group_Artist_ID", referencedColumnName = "GroupArtist_ID", insertable = false, updatable = false)
     private GroupArtist groupArtist;
+
+    @Transient
+    private String ArtistName = "";
+
 
     // Other album properties and relationships
 }
