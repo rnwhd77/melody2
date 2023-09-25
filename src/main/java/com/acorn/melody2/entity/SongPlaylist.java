@@ -33,5 +33,10 @@ public class SongPlaylist {
     public static class SongPlaylistId implements Serializable {
         private int playlistId;
         private int songId;
+
+        public SongPlaylistId(int playlistId, int songId) {
+            this.playlistId = playlistId;
+            this.songId = songId;
+        }
     }
 }
