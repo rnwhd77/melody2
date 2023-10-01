@@ -2,14 +2,10 @@ import React, { useState } from 'react';
 
 function RegistrationForm() {
     // Define state variables for form fields
-    const [name, setName] = useState('');
+
     const [accountId, setAccountId] = useState('');
-    const [birthDate, setBirthDate] = useState('');
-    const [email, setEmail] = useState('');
-    const [gender, setGender] = useState('Male');
     const [password, setPassword] = useState('');
-    const [passwordConfirm, setPasswordConfirm] = useState('');
-    const [hashtag, setHashtag] = useState('');
+
 
     // Handle form submission
     const handleSubmit = async (e) => {
@@ -17,14 +13,10 @@ function RegistrationForm() {
 
         // Create a user object with the form data
         const user = {
-            name,
             accountId,
-            birthDate,
-            email,
-            gender,
             password,
-            hashtag
         };
+//handleSubmit 함수는 폼 제출 이벤트를 처리하고, 사용자가 제출한 계정 ID와 암호를 user 객체에 저장하는 역할
 
         try {
             // Send a POST request to the backend API
@@ -57,59 +49,16 @@ function RegistrationForm() {
                     <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
                         <h1 className="text-2xl font-bold mb-4">SIGN UP</h1>
                         <div className="space-y-4">
-                            <div>
-                                <label className="block">Name</label>
-                                <input type="text" value={name} onChange={(e) => setName(e.target.value)} required className="w-full rounded border px-3 py-2" />
-                                {/* Add error message div */}
-                            </div>
 
                             <div>
-                                <label className="block">AccountId</label>
+                                <label className="block">Id</label>
                                 <input type="text" value={accountId} onChange={(e) => setAccountId(e.target.value)} required className="w-full rounded border px-3 py-2" />
                                 {/* Add error message div */}
                             </div>
 
                             <div>
-                                <label className="block">Birth Date</label>
-                                <input type="date" id="birthDate" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} required className="w-full rounded border px-3 py-2" />
-                                {/* Add error message div */}
-                            </div>
-
-                            <div>
-                                <label className="block">Email</label>
-                                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full rounded border px-3 py-2" />
-                                {/* Add error message div */}
-                            </div>
-
-                            <div>
-                                <label className="block">Gender</label>
-                                <div className="space-x-4">
-                                    <label htmlFor="Male">
-                                        <input type="radio" name="gender" value="Male" id="Male" checked={gender === 'Male'} onChange={() => setGender('Male')} />
-                                        <span className="ml-1">Male</span>
-                                    </label>
-                                    <label htmlFor="Female">
-                                        <input type="radio" name="gender" value="Female" id="Female" checked={gender === 'Female'} onChange={() => setGender('Female')} />
-                                        <span className="ml-1">Female</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div>
                                 <label className="block">Password</label>
                                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="w-full rounded border px-3 py-2" />
-                                {/* Add error message div */}
-                            </div>
-
-                            <div>
-                                <label className="block">Confirm Password</label>
-                                <input type="password" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} required className="w-full rounded border px-3 py-2" />
-                                {/* Add error message div */}
-                            </div>
-
-                            <div>
-                                <label className="block">Input HashTag</label>
-                                <input type="text" value={hashtag} onChange={(e) => setHashtag(e.target.value)} required className="w-full rounded border px-3 py-2" />
                                 {/* Add error message div */}
                             </div>
 
