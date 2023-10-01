@@ -26,7 +26,7 @@ public class Album {
     @Column(name = "Album_Info", length = 500)
     private String albumInfo;
 
-    @Column(name = "Rating", precision = 3)
+    @Column(name = "Rating", precision = 3, scale = 1)
     private double rating;
 
     @Column(name = "Reply_Count")

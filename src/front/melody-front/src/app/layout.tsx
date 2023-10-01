@@ -28,10 +28,6 @@ const links: LinkItem[] = [
     href: '/login',
     key: 'login',
   },
-  {
-    href: '/service',
-    key: '고객센터',
-  }
 ];
 
 type RootLayoutProps = {
