@@ -1,5 +1,5 @@
 import React from 'react';
-import BoardForm from "../../../components/users/BoardForm"; // BoardForm 컴포넌트를 가져옵니다.
+import BoardForm from "../../../components/user/BoardForm"; // BoardForm 컴포넌트를 가져옵니다.
 
 const Page = () => {
     return (

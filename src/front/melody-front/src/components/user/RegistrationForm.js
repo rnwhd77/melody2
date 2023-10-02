@@ -44,26 +44,39 @@ function RegistrationForm() {
 
     return (
         <div className="container mx-auto p-8">
-            <section className="signup" id="signup">
+            <section className="board-form" id="board-form">
                 <div className="section-inner">
                     <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
-                        <h1 className="text-2xl font-bold mb-4">SIGN UP</h1>
+                        <h1 className="text-2xl font-bold mb-4">문의하기</h1>
                         <div className="space-y-4">
-
                             <div>
-                                <label className="block">Id</label>
-                                <input type="text" value={accountId} onChange={(e) => setAccountId(e.target.value)} required className="w-full rounded border px-3 py-2" />
-                                {/* Add error message div */}
+                                <label className="block">Title</label>
+                                <input
+                                    type="text"
+                                    value={accountId}
+                                    onChange={(e) => setAccountId(e.target.value)}
+                                    required
+                                    className="w-full rounded border px-3 py-2"
+                                />
                             </div>
 
                             <div>
-                                <label className="block">Password</label>
-                                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="w-full rounded border px-3 py-2" />
-                                {/* Add error message div */}
+                                <label className="block">Content</label>
+                                <textarea
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                    className="w-full rounded border px-3 py-2"
+                                    rows="4"
+                                ></textarea>
                             </div>
 
                             <div>
-                                <input type="submit" value="SIGN UP" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 cursor-pointer" />
+                                <input
+                                    type="submit"
+                                    value="접수하기"
+                                    className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 cursor-pointer"
+                                />
                             </div>
                         </div>
                     </form>

@@ -2,6 +2,8 @@ package com.acorn.melody2.controller;
 
 import com.acorn.melody2.entity.Board;
 import com.acorn.melody2.service.BoardService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +13,10 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/users-boards")
+@RequestMapping("/api/user-boards")
 public class BoardController {
     private final BoardService boardService;
+    private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
     @Autowired
     public BoardController(BoardService boardService) {
@@ -26,27 +29,28 @@ public class BoardController {
         return ResponseEntity.ok(boards);
     }
 
-    @GetMapping("/{no}")
-    public ResponseEntity<Board> getBoardByNo(@PathVariable Long no) {
-        Optional<Board> board = boardService.getBoardByNo(no);
+    @GetMapping("/{id}")
+    public ResponseEntity<Board> getBoardByNo(@PathVariable Long id) {
+        Optional<Board> board = boardService.getBoardByNo(id);
         return board.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
     public ResponseEntity<Board> createBoard(@RequestBody Board board) {
+        logger.warn(board.toString());
         Board createdBoard = boardService.createBoard(board);
         return new ResponseEntity<>(createdBoard, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{no}")
-    public ResponseEntity<Board> updateBoard(@PathVariable Long no, @RequestBody Board updatedBoard) {
-        Board updated = boardService.updateBoard(no, updatedBoard);
+    @PutMapping("/{id}")
+    public ResponseEntity<Board> updateBoard(@PathVariable Long id, @RequestBody Board updatedBoard) {
+        Board updated = boardService.updateBoard(id, updatedBoard);
         return ResponseEntity.ok(updated);
     }
 
-    @DeleteMapping("/{no}")
-    public ResponseEntity<Void> deleteBoard(@PathVariable Long no) {
-        boardService.deleteBoard(no);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteBoard(@PathVariable Long id) {
+        boardService.deleteBoard(id);
         return ResponseEntity.noContent().build();
     }
 }

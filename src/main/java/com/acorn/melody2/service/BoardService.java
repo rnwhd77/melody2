@@ -30,9 +30,9 @@ public class BoardService {
         return boardRepository.save(board);
     }
 
-    public Board updateBoard(Long no, Board updatedBoard) {
+    public Board updateBoard(Long id, Board updatedBoard) {
         // 필요한 경우 유효성 검사 또는 비즈니스 로직 추가 가능
-        updatedBoard.setBoardNo(no);
+        updatedBoard.setBoardId(id);
         return boardRepository.save(updatedBoard);
     }
 

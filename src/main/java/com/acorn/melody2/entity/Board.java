@@ -5,15 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Board")
+@Table(name = "board")
 @NoArgsConstructor
 @Data
 public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "no")
-    private Long boardNo;
+    @Column(name = "id")
+    private Long boardId;
 
     @Column(name = "title")
     private String boardTitle;

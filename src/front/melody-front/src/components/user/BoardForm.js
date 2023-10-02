@@ -10,6 +10,15 @@ function BoardForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Check if content is empty before sending the request
+        if (!content.trim()) {
+            alert('Content cannot be empty.');
+            return;
+        }
+
+        console.log('Submitting form with title:', title);
+        console.log('Submitting form with content:', content);
+
         // Create a board object with the form data
         const board = {
             title,
@@ -18,7 +27,8 @@ function BoardForm() {
 
         try {
             // Send a POST request to the backend API
-            const response = await fetch('/api/users-boards', {
+            console.log(board);
+            const response = await fetch('/api/user-boards', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,13 +70,14 @@ function BoardForm() {
 
                             <div>
                                 <label className="block">Content</label>
-                                <textarea
+                                <input
+                                    type="text"
                                     value={content}
                                     onChange={(e) => setContent(e.target.value)}
                                     required
                                     className="w-full rounded border px-3 py-2"
-                                    rows="4"
-                                ></textarea>
+
+                                ></input>
                             </div>
 
                             <div>

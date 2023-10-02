@@ -31,6 +31,10 @@ const links: LinkItem[] = [
   {
     href: '/service',
     key: '고객센터',
+  },
+  {
+    href: '/musicplayer',
+    key: '재생',
   }
 ];
 
