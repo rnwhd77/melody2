@@ -4,7 +4,7 @@ function RegistrationForm() {
     // Define state variables for form fields
 
     const [accountId, setAccountId] = useState('');
-    const [password, setPassword] = useState('');
+    const [content, setContent] = useState('');
 
 
     // Handle form submission
@@ -14,7 +14,7 @@ function RegistrationForm() {
         // Create a user object with the form data
         const user = {
             accountId,
-            password,
+            content,
         };
 //handleSubmit 함수는 폼 제출 이벤트를 처리하고, 사용자가 제출한 계정 ID와 암호를 user 객체에 저장하는 역할
 
@@ -63,8 +63,8 @@ function RegistrationForm() {
                             <div>
                                 <label className="block">Content</label>
                                 <textarea
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    value={content}
+                                    onChange={(e) => setContent(e.target.value)}
                                     required
                                     className="w-full rounded border px-3 py-2"
                                     rows="4"
