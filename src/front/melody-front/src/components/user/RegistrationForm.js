@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function RegistrationForm() {
     // Define state variables for form fields
 
-    const [title, settitle] = useState('');
+    const [accountId, setAccountId] = useState('');
     const [content, setContent] = useState('');
 
 
@@ -13,7 +13,7 @@ function RegistrationForm() {
 
         // Create a user object with the form data
         const user = {
-            title,
+            accountId,
             content,
         };
 //handleSubmit 함수는 폼 제출 이벤트를 처리하고, 사용자가 제출한 계정 ID와 암호를 user 객체에 저장하는 역할
@@ -53,8 +53,8 @@ function RegistrationForm() {
                                 <label className="block">Title</label>
                                 <input
                                     type="text"
-                                    value={title}
-                                    onChange={(e) => settitle(e.target.value)}
+                                    value={accountId}
+                                    onChange={(e) => setAccountId(e.target.value)}
                                     required
                                     className="w-full rounded border px-3 py-2"
                                 />
