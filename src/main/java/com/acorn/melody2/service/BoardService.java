@@ -21,8 +21,8 @@ public class BoardService {
         return boardRepository.findAll();
     }
 
-    public Optional<Board> getBoardByNo(Long no) {
-        return boardRepository.findById(no);
+    public Optional<Board> getBoardById(Long id) {
+        return boardRepository.findById(id);
     }
 
     public Board createBoard(Board board) {
@@ -32,7 +32,7 @@ public class BoardService {
 
     public Board updateBoard(Long id, Board updatedBoard) {
         // 필요한 경우 유효성 검사 또는 비즈니스 로직 추가 가능
-        updatedBoard.setBoardId(id);
+        updatedBoard.setUserAccountId(id);
         return boardRepository.save(updatedBoard);
     }
 

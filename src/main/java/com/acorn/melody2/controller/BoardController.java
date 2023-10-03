@@ -31,7 +31,7 @@ public class BoardController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Board> getBoardByNo(@PathVariable Long id) {
-        Optional<Board> board = boardService.getBoardByNo(id);
+        Optional<Board> board = boardService.getBoardById(id);
         return board.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
