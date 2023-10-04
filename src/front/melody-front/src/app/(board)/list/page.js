@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link"
 
 const page = ({ userAccountId }) => {
     const [board, setBoard] = useState(null);
@@ -27,17 +28,21 @@ const page = ({ userAccountId }) => {
                 <tr className="bg-blue-500 text-white">
                     <th className="p-2">상태</th>
                     <th className="p-2" style={{ width: "50%" }}>제목</th>
-                    <th className="p-2">접수일</th>
                     <th className="p-2">조회수</th>
+                    <th className="p-2">등록일</th>
                 </tr>
                 </thead>
                 <tbody>
-                {board.map((board) => (
+                {board.map((a) => (
                     <tr key={board.userAccountId} className="border">
                         <td className="border p-2">접수중</td>
-                        <td className="border p-2">{board.title}</td>
+                        <td className="border p-2">
+                            <Link href={`/detail/${a.userAccountId}`}>
+                                {a.title}
+                            </Link>
+                        </td>
+                        <td className="border p-2">34</td>
                         <td className="border p-2">2023-10-03</td>
-                        <td className="border p-2">100</td>
                     </tr>
                 ))}
                 </tbody>
