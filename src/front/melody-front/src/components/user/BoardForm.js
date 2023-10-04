@@ -38,8 +38,13 @@ function BoardForm() {
 
             if (response.ok) {
                 // Board creation successful
-                alert('Board created successfully!');
-                // Optionally, redirect to a success page or perform other actions
+                alert('문의 접수가 완료되었습니다.');
+
+                // Perform the client-side redirection after a short delay
+
+                    window.location.href = 'write/success'; // 적절한 URL로 변경
+
+
             } else {
                 // Board creation failed, display an error message
                 alert('Board creation failed. Please try again.');
@@ -70,14 +75,14 @@ function BoardForm() {
 
                             <div>
                                 <label className="block">Content</label>
-                                <input
-                                    type="text"
+                                <textarea
+                                    rows="10"
                                     value={content}
                                     onChange={(e) => setContent(e.target.value)}
                                     required
                                     className="w-full rounded border px-3 py-2"
 
-                                ></input>
+                                ></textarea>
                             </div>
 
                             <div>

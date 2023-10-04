@@ -6,7 +6,7 @@ const ServiceGu = (children) => {
     return (
         <div>
             <h1>service</h1>
-            <Link href="/service/create">create</Link>
+            <Link href="/service">create</Link>
         </div>
     )
 }
