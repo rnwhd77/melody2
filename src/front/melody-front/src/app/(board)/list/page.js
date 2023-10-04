@@ -37,7 +37,14 @@ const page = ({ userAccountId }) => {
                     <tr key={board.userAccountId} className="border">
                         <td className="border p-2">접수중</td>
                         <td className="border p-2">
-                            <Link href={`/detail/${a.userAccountId}`}>
+                            <Link href={{
+                             pathname:`detail/${a.userAccountId}`,
+                             query: {
+                                 userAccountId: a.userAccountId,
+                                 title: a.title,
+                                 content: a.content
+                             }
+                            }}>
                                 {a.title}
                             </Link>
                         </td>
