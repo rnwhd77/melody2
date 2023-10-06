@@ -6,7 +6,6 @@ const Page = () => {
         <div>
             <Layout>
             <BoardForm /> {/* BoardForm 컴포넌트를 렌더링합니다. */}
-
             </Layout>
         </div>
     );

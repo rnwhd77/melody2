@@ -29,7 +29,7 @@ const links: LinkItem[] = [
     key: 'login',
   },
   {
-    href: '/service',
+    href: '/help',
     key: '고객센터',
   },
   {
