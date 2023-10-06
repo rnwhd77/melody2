@@ -23,6 +23,7 @@ const page = ({ userAccountId }) => {
         return (
             <div className="container mx-auto p-8">
             <h1 className="text-2xl font-bold mb-4">문의내역</h1>
+
             <table className="w-full border-collapse border">
                 <thead>
                 <tr className="bg-blue-500 text-white">
@@ -36,21 +37,38 @@ const page = ({ userAccountId }) => {
                 {board.map((a) => (
                     <tr key={board.userAccountId} className="border">
                         <td className="border p-2">접수중</td>
-                        <td className="border p-2">
-                            <Link href={{
-                             pathname:`detail/${a.userAccountId}`,
-                             query: {
-                                 userAccountId: a.userAccountId,
-                                 title: a.title,
-                                 content: a.content
-                             }
-                            }} legacyBehavior>
-                               <a className="no-underline"> {a.title} </a>
+                        <td className="flex justify-between">
+                            <Link
+                                href={{
+                                    pathname: `detail/${a.userAccountId}`,
+                                    query: {
+                                        userAccountId: a.userAccountId,
+                                        title: a.title,
+                                        content: a.content,
+                                    },
+                                }}
+                                legacyBehavior
+                            >
+                                <a className="no-underline"> {a.title} </a>
+                            </Link>
+                            <Link
+                                href={{
+                                    pathname: `edit/${a.userAccountId}`,
+                                    query: {
+                                        userAccountId: a.userAccountId,
+                                        title: a.title,
+                                        content: a.content,
+                                    },
+                                }}
+                                legacyBehavior
+                            >
+                                <a className="no-underline text-right ml-auto"> ✏️ </a>
                             </Link>
                         </td>
                         <td className="border p-2">34</td>
                         <td className="border p-2">2023-10-03</td>
                     </tr>
+
                 ))}
                 </tbody>
             </table>

@@ -1,7 +1,9 @@
 "use client"
 import React, {useState} from "react";
+import {useSearchParams} from "next/navigation";
 
 export default function Edit() {
+    const [userAccountId, setUserAccountId] = useState(null);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
@@ -14,13 +16,14 @@ export default function Edit() {
         }
 
         const board = {
+            userAccountId,
             title,
             content,
         };
 
         try {
             console.log(board);
-            const response = await fetch('/api/user-boards/${UserAccount_ID}', {
+            const response = await fetch('/api/user-boards', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,6 +43,9 @@ export default function Edit() {
             // Handle any network or other errors here
         }
     };
+
+    const params= useSearchParams();
+
     return (
         <div className="container mx-auto p-8">
             <section className="board-form" id="board-form">
@@ -48,23 +54,25 @@ export default function Edit() {
                         <h1 className="text-2xl font-bold mb-4">수정페이지</h1>
                         <div className="space-y-4">
                             <div>
-                                <label className="block">Title</label>
                                 <input
                                     type="text"
-                                    value={title}
-                                    placeholder={"제목을 수정해주세요."}
-                                    required
+                                    defaultValue={params.get('userAccountId')}
+                                    onChange={(e) => setUserAccountId(e.target.value)}
+                                    className="w-full rounded border px-3 py-2"
+                                />
+                            </div>
+                            <div>
+                                <input
+                                    type="text"
+                                    defaultValue={params.get('title')}
                                     onChange={(e) => setTitle(e.target.value)}
                                     className="w-full rounded border px-3 py-2"
                                 />
                             </div>
                             <div>
-                                <label className="block">Content</label>
                                 <textarea
                                     rows="10"
-                                    value={content}
-                                    placeholder={"내용을 수정해주세요."}
-                                    required
+                                    defaultValue={params.get('content')}
                                     onChange={(e) => setContent(e.target.value)}
                                     className="w-full rounded border px-3 py-2"
                                 ></textarea>
