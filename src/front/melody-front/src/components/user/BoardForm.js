@@ -33,7 +33,7 @@ function BoardForm() {
 
             if (response.ok) {
                 alert('문의 접수가 완료되었습니다.');
-                    window.location.href = 'write/success';
+                window.location.href = 'write/success';
             } else {
                 // Board creation failed, display an error message
                 alert('Board creation failed. Please try again.');
@@ -49,7 +49,6 @@ function BoardForm() {
             <section className="board-form" id="board-form">
                 <div className="section-inner">
                     <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
-                        <h1 className="text-2xl font-bold mb-4">문의하기</h1>
                         <div className="space-y-4">
                             <div>
                                 <label className="block">Title</label>
