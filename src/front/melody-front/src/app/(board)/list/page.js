@@ -27,16 +27,14 @@ const page = ({ userAccountId }) => {
             <table className="w-full border-collapse border">
                 <thead>
                 <tr className="bg-blue-500 text-white">
-                    <th className="p-2">상태</th>
-                    <th className="p-2" style={{ width: "50%" }}>제목</th>
-                    <th className="p-2">조회수</th>
+                    <th className="p-2" style={{ width: "70%" }}>제목</th>
                     <th className="p-2">등록일</th>
+                    <th className="p-2">답변</th>
                 </tr>
                 </thead>
                 <tbody>
                 {board.map((a) => (
                     <tr key={board.userAccountId} className="border">
-                        <td className="border p-2">접수중</td>
                         <td className="flex justify-between">
                             <Link
                                 href={{
@@ -80,8 +78,8 @@ const page = ({ userAccountId }) => {
                             </Link>
                             </span>
                         </td>
-                        <td className="border p-2">34</td>
                         <td className="border p-2">2023-10-03</td>
+                        <td className="border p-2">답변대기</td>
                     </tr>
 
                 ))}

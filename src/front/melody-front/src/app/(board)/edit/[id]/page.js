@@ -23,8 +23,8 @@ export default function Edit() {
 
         try {
             console.log(board);
-            const response = await fetch('/api/user-boards', {
-                method: 'PUT',
+            const response = await fetch(`/api/user-boards`, {
+                method: 'put',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -35,12 +35,10 @@ export default function Edit() {
                 alert('수정이 완료되었습니다.');
 
             } else {
-                // Board creation failed, display an error message
-                alert('Board creation failed. Please try again.');
+                alert('수정연결 불가');
             }
         } catch (error) {
             console.error('Error:', error);
-            // Handle any network or other errors here
         }
     };
 
@@ -64,6 +62,8 @@ export default function Edit() {
                             <div>
                                 <input
                                     type="text"
+                                    required
+                                    name="title"
                                     defaultValue={params.get('title')}
                                     onChange={(e) => setTitle(e.target.value)}
                                     className="w-full rounded border px-3 py-2"
@@ -72,10 +72,13 @@ export default function Edit() {
                             <div>
                                 <textarea
                                     rows="10"
+                                    required
                                     defaultValue={params.get('content')}
+                                    name="content"
                                     onChange={(e) => setContent(e.target.value)}
                                     className="w-full rounded border px-3 py-2"
-                                ></textarea>
+                                    >
+                                </textarea>
                             </div>
                             <div>
                                 <input

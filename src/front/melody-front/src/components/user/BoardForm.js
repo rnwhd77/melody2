@@ -53,13 +53,17 @@ function BoardForm() {
                         <div className="space-y-4">
                             <div>
                                 <label className="block">Title</label>
-                                <input
-                                    type="text"
+                                <select
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
                                     required
                                     className="w-full rounded border px-3 py-2"
-                                />
+                                >
+                                    <option value="option1">결제/해지/환불</option>
+                                    <option value="option2">오류신고</option>
+                                    <option value="option3">서비스문의</option>
+                                    {/* 추가 옵션들 */}
+                                </select>
                             </div>
                             <div>
                                 <label className="block">Content</label>
