@@ -1,24 +1,14 @@
 import Link from "next/link";
-
+import Layout from '../../../components/users/Layout';
 const ServicePage = () => {
     return (
-        <>
-            <ul>
-                <li>
-                    <Link href="/">Q&A</Link>
-                </li>
-                <li>
-                    <Link href="/write">1:1문의</Link>
-                </li>
-                <li>
-                    <Link href="/list">문의 내역 조회</Link>
-                </li>
-                <li>
-                    <Link href="/">공지사항</Link>
-                </li>
-            </ul>
-        </>
-    )
+        <Layout>
+            <div>
+             <h1>안녕</h1>   {/* 문의하기 페이지 내용 */}
+            </div>
+        </Layout>
+
+    );
 }
 
 export default ServicePage;

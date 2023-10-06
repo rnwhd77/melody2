@@ -47,22 +47,9 @@ const page = ({ userAccountId }) => {
                                 }}
                                 legacyBehavior
                             >
-                                <a className="no-underline"> {a.title} </a>
+                                <a className="no-underline"> {a.content} </a>
                             </Link>
                             <span className="flex justify-end">
-                            <Link
-                                href={{
-                                    pathname: `edit/${a.userAccountId}`,
-                                    query: {
-                                        userAccountId: a.userAccountId,
-                                        title: a.title,
-                                        content: a.content,
-                                    },
-                                }}
-                                legacyBehavior
-                            >
-                                <a className="no-underline"> ✏️ </a>
-                            </Link>
                             <Link
                                 href={{
                                     pathname: `delete/${a.userAccountId}`,
