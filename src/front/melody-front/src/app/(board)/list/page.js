@@ -17,7 +17,7 @@ const page = ({ userAccountId }) => {
     }, [userAccountId]);
 
     if (!board) {
-        return <div>Loading...</div>; // 데이터를 기다리는 동안 로딩 메시지를 표시합니다.
+        return <div>Loading...</div>;
     }
 
         return (
@@ -44,8 +44,8 @@ const page = ({ userAccountId }) => {
                                  title: a.title,
                                  content: a.content
                              }
-                            }}>
-                                {a.title}
+                            }} legacyBehavior>
+                               <a className="no-underline"> {a.title} </a>
                             </Link>
                         </td>
                         <td className="border p-2">34</td>

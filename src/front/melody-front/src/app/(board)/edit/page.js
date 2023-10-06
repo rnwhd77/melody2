@@ -1,7 +1,7 @@
 "use client"
-import React, { useState } from 'react';
+import React, {useState} from "react";
 
-function BoardForm() {
+export default function Edit() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
@@ -13,9 +13,6 @@ function BoardForm() {
             return;
         }
 
-        console.log('Submitting form with title:', title);
-        console.log('Submitting form with content:', content);
-
         const board = {
             title,
             content,
@@ -23,8 +20,8 @@ function BoardForm() {
 
         try {
             console.log(board);
-            const response = await fetch('/api/user-boards', {
-                method: 'POST',
+            const response = await fetch('/api/user-boards/${UserAccount_ID}', {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -32,8 +29,8 @@ function BoardForm() {
             });
 
             if (response.ok) {
-                alert('문의 접수가 완료되었습니다.');
-                    window.location.href = 'write/success';
+                alert('수정이 완료되었습니다.');
+
             } else {
                 // Board creation failed, display an error message
                 alert('Board creation failed. Please try again.');
@@ -43,21 +40,21 @@ function BoardForm() {
             // Handle any network or other errors here
         }
     };
-
     return (
         <div className="container mx-auto p-8">
             <section className="board-form" id="board-form">
                 <div className="section-inner">
                     <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
-                        <h1 className="text-2xl font-bold mb-4">문의하기</h1>
+                        <h1 className="text-2xl font-bold mb-4">수정페이지</h1>
                         <div className="space-y-4">
                             <div>
                                 <label className="block">Title</label>
                                 <input
                                     type="text"
                                     value={title}
-                                    onChange={(e) => setTitle(e.target.value)}
+                                    placeholder={"제목을 수정해주세요."}
                                     required
+                                    onChange={(e) => setTitle(e.target.value)}
                                     className="w-full rounded border px-3 py-2"
                                 />
                             </div>
@@ -66,15 +63,16 @@ function BoardForm() {
                                 <textarea
                                     rows="10"
                                     value={content}
-                                    onChange={(e) => setContent(e.target.value)}
+                                    placeholder={"내용을 수정해주세요."}
                                     required
+                                    onChange={(e) => setContent(e.target.value)}
                                     className="w-full rounded border px-3 py-2"
                                 ></textarea>
                             </div>
                             <div>
                                 <input
                                     type="submit"
-                                    value="접수하기"
+                                    value="전송"
                                     className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 cursor-pointer"
                                 />
                             </div>
@@ -83,7 +81,5 @@ function BoardForm() {
                 </div>
             </section>
         </div>
-    );
+    )
 }
-
-export default BoardForm;

@@ -44,6 +44,7 @@ public class BoardController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Board> updateBoard(@PathVariable Long id, @RequestBody Board updatedBoard) {
+        logger.warn(updatedBoard.toString());
         Board updated = boardService.updateBoard(id, updatedBoard);
         return ResponseEntity.ok(updated);
     }
