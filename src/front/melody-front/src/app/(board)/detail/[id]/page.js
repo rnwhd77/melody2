@@ -10,10 +10,6 @@ const page = () => {
     return (
         <div className="container mx-auto p-8">
             <h1 className="text-2xl font-bold mb-4">문의내역</h1>
-            <div className="text-right mb-4">
-                <Link href='/edit/' legacyBehavior className="list-btn"><a className="no-underline">✏️수정</a></Link>
-                <Link href='/delete/' legacyBehavior className="list-btn"><a className="no-underline">🗑️삭제</a></Link>
-            </div>
             <table className="w-full border-collapse border">
                 <thead>
                 <tr className="">
