@@ -45,12 +45,13 @@ function BoardForm() {
     };
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto p-8">
             <section className="board-form" id="board-form">
                 <div className="section-inner">
                     <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
                         <div className="space-y-4">
                             <div>
+                                <label className="block">Title</label>
                                 <select
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
@@ -64,6 +65,7 @@ function BoardForm() {
                                 </select>
                             </div>
                             <div>
+                                <label className="block">Content</label>
                                 <textarea
                                     rows="10"
                                     value={content}
