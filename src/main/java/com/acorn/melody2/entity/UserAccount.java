@@ -19,7 +19,7 @@ public class UserAccount {
     @Column(name = "title", unique = true)  //"Account_ID" 열에 매핑되는 accountId 필드를 정의하고 있습니다. unique = true는 이 열에 고유 제약 조건을 설정하는 것을 의미합니다. 즉, 모든 accountId 값은 고유해야 합
     private String title;
 
-    @Column(name = "Content")//"PassWord" 열에 매핑되는 password 필드를 정의
+    @Column(name = "content")//"PassWord" 열에 매핑되는 password 필드를 정의
     private String content;
 
 

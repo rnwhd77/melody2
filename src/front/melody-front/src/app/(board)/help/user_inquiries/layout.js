@@ -2,13 +2,14 @@
 import axios from "axios";
 import Link from "next/link"
 
-const WriteLayout = () => {
+const user_inquiries = (children ) => {
 
 
     return (
         <div className="container mx-auto ">
-
-        </div>    );
+            {children}
+        </div>
+    );
 };
 
-export default WriteLayout;
+export default user_inquiries;
