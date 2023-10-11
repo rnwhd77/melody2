@@ -62,7 +62,7 @@ const AuthPage = () => {
             {userState.isAuthenticated ? (
                 <>
                     <p>Welcome, {userState.user.name}!</p>
-                    <button onClick={handleLogout}>Logout</button>
+                    <button onClick={handleLogout} className="px-4 py-2 bg-blue-500 text-white rounded">Logout</button>
                 </>
             ) : (
                 <>

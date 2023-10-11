@@ -19,10 +19,11 @@ const Home = () => {
             {userState.isAuthenticated ? (
                 <>
                     <p>Welcome, {userState.user.name}!</p>
+                    <p>Welcome, {userState.user.email}!</p>
                 </>
             ) : (
                 <>
-                   no logined yet
+                   no login yet
                 </>
             )}
 

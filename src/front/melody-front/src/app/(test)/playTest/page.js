@@ -1,5 +1,6 @@
 "use client"
 import { useState } from 'react';
+import ReactPlayer from "react-player";
 
 function TestApi() {
     const [response, setResponse] = useState(null);
@@ -7,7 +8,7 @@ function TestApi() {
     const fetchData = async () => {
         try {
             const dataToSend = {
-                "youtube_url" : "https://www.youtube.com/watch?v=SfeaTW4bcAw"
+                "youtube_url" : "https://www.youtube.com/watch?v=JBe0yHNEURo"
             };
 
             const res = await fetch('https://y5c1520fb4.execute-api.ap-northeast-2.amazonaws.com/melody-aws/api/getMusic', {
@@ -34,6 +35,13 @@ function TestApi() {
             <h1>Test API Page</h1>
             <button onClick={fetchData}>Fetch Data</button>
             {response && <pre>{JSON.stringify(response, null, 2)}</pre>}
+            {response && response.mp3_url && (
+                <ReactPlayer url={response.mp3_url} controls />
+            )}
+
+
+
+            {/*<ReactPlayer url= response/>*/}
         </div>
     );
 }
