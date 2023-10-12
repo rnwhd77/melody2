@@ -1,8 +1,10 @@
 package com.acorn.melody2.service;
 
 import com.acorn.melody2.entity.Playlist;
+import com.acorn.melody2.entity.UserAccount;
 import com.acorn.melody2.repository.PlaylistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.spel.ast.OpMultiply;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,8 +28,12 @@ public class PlaylistService {
         return playlistRepository.findById(id);
     }
 
-    public Playlist savePlaylist(Playlist playlist) {
-        return playlistRepository.save(playlist);
+    public Playlist savePlaylist(Playlist playlist){ return playlistRepository.save(playlist);}
+
+
+    public Playlist updatePlaylist(Long id, Playlist updatedPlaylist) {
+            updatedPlaylist.setPlaylistId(id);
+        return playlistRepository.save(updatedPlaylist);
     }
 
     public void deletePlaylist(int id) {
