@@ -1,5 +1,6 @@
 package com.acorn.melody2.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -35,6 +36,11 @@ public class Playlist {
     private UserAccount userAccount;
 
     @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<SongPlaylist> songPlaylists;
+
+
+    @Transient
+    private List<Song> songs;
 
 }

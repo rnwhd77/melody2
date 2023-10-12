@@ -7,10 +7,10 @@ import com.acorn.melody2.service.SongPlaylistService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/playlists")
@@ -50,9 +50,16 @@ public class PlaylistController {
     }
 
     // Read a playlist by ID
+    // Read a playlist by ID
     @GetMapping("/{id}")
-    public Optional<Playlist> getPlaylistById(@PathVariable int id) {
-        return playlistService.getPlaylistById(id);
+    public ResponseEntity<Playlist> getPlaylistById(@PathVariable Long id) {
+        Playlist playlist = playlistService.getSongsByPlaylistId(id);
+
+        if (playlist != null) {
+            return ResponseEntity.ok(playlist);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     // Update a playlist by ID
