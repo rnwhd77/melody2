@@ -2,6 +2,7 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import Footer from '../components/global/footer';
+import { UserContextProvider } from "../contexts/UserContext";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -31,10 +32,6 @@ const links: LinkItem[] = [
   {
     href: '/help/user_inquiries',
     key: '고객센터',
-  },
-  {
-    href: '/musicplayer',
-    key: '재생',
   }
 ];
 
@@ -44,24 +41,26 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
-    <html lang="en">
-    <body className={inter.className}>
-    <header>
-      <div>
-        <ul className="flex bg-slate-500">
-          {links.map(({ href, key }) => (
-              <li className="flex-auto" key={key}>
-                <Link href={href}>
-                  {key}
-                </Link>
-              </li>
-          ))}
-        </ul>
-      </div>
-    </header>
-    {children}
-    <Footer />
-    </body>
-    </html>
+      <html lang="en">
+      <UserContextProvider>
+        <body className={inter.className}>
+        <header>
+          <div>
+            <ul className="flex bg-slate-500">
+              {links.map(({ href, key }) => (
+                  <li className="flex-auto" key={key}>
+                    <Link href={href}>
+                      {key}
+                    </Link>
+                  </li>
+              ))}
+            </ul>
+          </div>
+        </header>
+        {children}
+        <Footer />
+        </body>
+      </UserContextProvider>
+      </html>
   );
 }

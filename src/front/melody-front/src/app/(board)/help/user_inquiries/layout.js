@@ -1,15 +1,16 @@
-"use client"
-import axios from "axios";
-import Link from "next/link"
-
-const user_inquiries = (children ) => {
-
-
+import Link from "next/link";
+import Layout from '../../../../components/users/Layout';
+import BoardForm from "../../../../components/user/BoardForm";
+import BoardList from "../../../../components/user/BoardList";
+const ServicePage = () => {
     return (
-        <div className="container mx-auto ">
-            {children}
-        </div>
+        <Layout>
+            <div className="container mx-auto w-full">
+                <BoardForm/>
+                <BoardList/>
+            </div>
+        </Layout>
     );
-};
+}
 
-export default user_inquiries;
+export default ServicePage;

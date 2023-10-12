@@ -32,7 +32,7 @@ function BoardForm() {
 
             if (response.ok) {
                 alert('문의 접수가 완료되었습니다.');
-                    window.location.href = './write';
+                window.location.href = './user_inquiries';
             } else {
                 // Board creation failed, display an error message
                 alert('Board creation failed. Please try again.');
@@ -96,7 +96,7 @@ function BoardForm() {
                                     <li>◦ 이용자는 Melody에서 수집하는 개인정보에 대해 동의를 거부할 권리가 있으며 동의 거부 시에는 1:1 문의 및 답변 확인 등 서비스 일부가 제한됩니다.</li>
                                 </ul>
                                 <ul style={{ fontSize: "12px",lineHeight: "20px" }}>
-                                        *관계 법령이라 함은 다음에 해당되는 경우를 말합니다.
+                                    *관계 법령이라 함은 다음에 해당되는 경우를 말합니다.
                                     <li>가. 웹사이트 방문기록: 3개월 (통선비밀보호법)</li>
                                     <li>나. 계약 또는 청악철회 등에 관한 기록:</li>
                                     <li>다. 대금결제 및 재화 등의 공급에 관한 기록: 5년(전자상거래법)</li>

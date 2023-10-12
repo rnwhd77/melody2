@@ -96,10 +96,9 @@ const Page = ({ userAccountId }) => {
                 ))}
                 </tbody>
             </table>
-
         </div>
-
     );
 };
 
 export default Page;
+

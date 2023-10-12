@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 
 function RegistrationForm() {
     // Define state variables for form fields
-
-    const [title, settitle] = useState('');
-    const [content, setContent] = useState('');
-
+    const [name, setName] = useState('');
+    const [accountId, setAccountId] = useState('');
+    const [birthDate, setBirthDate] = useState('');
+    const [email, setEmail] = useState('');
+    const [gender, setGender] = useState('Male');
+    const [password, setPassword] = useState('');
+    const [passwordConfirm, setPasswordConfirm] = useState('');
+    const [hashtag, setHashtag] = useState('');
 
     // Handle form submission
     const handleSubmit = async (e) => {
@@ -13,10 +17,9 @@ function RegistrationForm() {
 
         // Create a user object with the form data
         const user = {
-            title,
-            content,
+            accountId,
+            password,
         };
-//handleSubmit 함수는 폼 제출 이벤트를 처리하고, 사용자가 제출한 계정 ID와 암호를 user 객체에 저장하는 역할
 
         try {
             // Send a POST request to the backend API
@@ -44,39 +47,23 @@ function RegistrationForm() {
 
     return (
         <div className="container mx-auto p-8">
-            <section className="board-form" id="board-form">
+            <section className="signup" id="signup">
                 <div className="section-inner">
                     <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
-                        <h1 className="text-2xl font-bold mb-4">문의하기</h1>
+                        <h1 className="text-2xl font-bold mb-4">SIGN UP</h1>
                         <div className="space-y-4">
                             <div>
-                                <label className="block">Title</label>
-                                <input
-                                    type="text"
-                                    value={title}
-                                    onChange={(e) => settitle(e.target.value)}
-                                    required
-                                    className="w-full rounded border px-3 py-2"
-                                />
+                                <label className="block">AccountId</label>
+                                <input type="text" value={accountId} onChange={(e) => setAccountId(e.target.value)} required className="w-full rounded border px-3 py-2" />
+                                {/* Add error message div */}
                             </div>
-
                             <div>
-                                <label className="block">Content</label>
-                                <textarea
-                                    value={content}
-                                    onChange={(e) => setContent(e.target.value)}
-                                    required
-                                    className="w-full rounded border px-3 py-2"
-                                    rows="4"
-                                ></textarea>
+                                <label className="block">Password</label>
+                                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="w-full rounded border px-3 py-2" />
+                                {/* Add error message div */}
                             </div>
-
                             <div>
-                                <input
-                                    type="submit"
-                                    value="접수하기"
-                                    className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 cursor-pointer"
-                                />
+                                <input type="submit" value="SIGN UP" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 cursor-pointer" />
                             </div>
                         </div>
                     </form>
