@@ -1,32 +1,39 @@
 "use client"
 import React, {useContext, useEffect, useState} from 'react';
-import {UserContext} from "./../../contexts/UserContext";
-import axios from "axios";
+import {UserContext} from "./../../../../contexts/UserContext";
 
 function BoardForm() {
-    const { userState, userDispatch } = useContext(UserContext);
-    const [accountId, setAccountId] = useState((userState.user && userState.user.accountId)||"");
     const [title, setTitle] = useState('결제/해지/환불');
     const [content, setContent] = useState('');
     const [creationDate, setCreationDate] = useState(new Date());
+    const [id, setId] = useState('');
 
 
-
+    const { userState, userDispatch } = useContext(UserContext);
 
     console.log("bp1");
     console.log(userState);
 
     const board = {
-        accountId,
+        id,
         title,
         content,
         creationDate
     };
 
+    // useEffect(() => {
+    //     setId(userState.user.accountId);
+    //     console.log(userState)
+    //     console.log(userState.user.accountId)
+    // }, []);
+    // const handleID = () => {
+    //     setId(userState.user.accountId)
+    //     return userState.user && userState.user.accountId ? userState.user.accountId : '로그인해주세요';
+    // }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(userState.user.accountId)
-        setAccountId(userState.user.accountId)
+        setId(userState.user.accountId)
 
         if (!content.trim()) {
             alert('Content cannot be empty.');
@@ -35,10 +42,16 @@ function BoardForm() {
         const id = (userState.user && userState.user.accountId) ||
             '로그인해주세요'
 
+        // const board = {
+        //     id,
+        //     title,
+        //     content,
+        //     creationDate
+        // };
 
         try {
             console.log(board);
-            const response = await fetch('/api/user-boards', {
+            const response = await axios.post('/api/user-boards', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,7 +61,7 @@ function BoardForm() {
 
             if (response.ok) {
                 alert('문의 접수가 완료되었습니다.');
-                history.push('/user_inquiries');
+                window.location.href = './user_inquiries';
             } else {
                 // Board creation failed, display an error message
                 alert('Board creation failed. Please try again.');

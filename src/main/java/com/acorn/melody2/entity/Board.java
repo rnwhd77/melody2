@@ -16,7 +16,10 @@ public class Board {
     @Column(name = "UserAccount_ID")
     private Long userAccountId;//
 
-    @Column(name = "Title", unique = true)
+    @Column(name = "Account_ID", unique = true)
+    private String accountId;
+
+    @Column(name = "Title")
     private String title;
 
     @Column(name = "Content")
@@ -24,6 +27,8 @@ public class Board {
 
     @Column(name = "Creation_Date")
     private Date creationDate;
+
+
 
 
 

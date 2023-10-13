@@ -15,6 +15,7 @@ const Home = () => {
             <h1>Server Component</h1>
             <ClientComponent />
             <h1> <Link href="/login"> test </Link></h1>
+            <h1> <Link href="/help/test1"> test </Link></h1>
 
             {userState.isAuthenticated ? (
                 <>
