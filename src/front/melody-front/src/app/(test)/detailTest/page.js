@@ -6,7 +6,7 @@ import axios from "axios";
 import {UserContext} from "../../../contexts/UserContext";
 import LikeButton from "../../../components/detail/LikeButton";
 
-const AlbumDetail = ({albumId}) => {
+function AlbumDetail(albumId) {
     const { userState, userDispatch } = useContext(UserContext);
     const [songs, setSongs] = useState([]);
     const [genres, setGenres] = useState([]);
