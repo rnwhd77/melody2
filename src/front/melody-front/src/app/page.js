@@ -18,6 +18,7 @@ const Home = () => {
             <h1> <Link href="/addPlaylistTest"> playlist creat test </Link></h1>
             <h1> <Link href="/addSongTest"> add song to playlist test </Link></h1>
             <h1> <Link href="/playlistPrintTest"> playlist print test </Link></h1>
+            <h1> <Link href="/detailTest"> detail print test </Link></h1>
 
 
             {userState.isAuthenticated ? (
