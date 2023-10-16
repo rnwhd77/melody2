@@ -1,6 +1,6 @@
 "use client"
 import React, {useContext, useEffect, useState} from 'react';
-import {UserContext} from "./../../contexts/UserContext";
+import {UserContext} from "./../../../../contexts/UserContext"
 import axios from "axios";
 import Link from "next/link";
 
@@ -55,8 +55,6 @@ function BoardForm() {
     useEffect(() => {
         axios.get(`/api/user-boards`)
             .then((res) => {
-                const filteredBoard = res.data.filter((post) => post.accountId === userState.user.accountId);
-                setBoard(filteredBoard);
             })
             .catch((err) => {
                 console.error("게시판 데이터를 불러오는 데 실패했습니다.", err);

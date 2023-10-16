@@ -5,10 +5,7 @@ import BoardList from "../../../../components/user/BoardList";
 const ServicePage = () => {
     return (
         <Layout>
-            <div className="container mx-auto w-full">
                 <BoardForm/>
-                <BoardList/>
-            </div>
         </Layout>
     );
 }

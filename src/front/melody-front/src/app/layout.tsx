@@ -32,6 +32,10 @@ const links: LinkItem[] = [
   {
     href: '/help/user_inquiries',
     key: '고객센터',
+  },
+  {
+    href: '/admin/administrator',
+    key: '관리자페이지',
   }
 ];
 

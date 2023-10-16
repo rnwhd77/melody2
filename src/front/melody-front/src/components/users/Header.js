@@ -8,16 +8,21 @@ const Header = () => {
                 <h2 className="text-4xl font-bold mb-8">고객센터</h2>
                 <ul className="flex justify-center mb-8">
                     <li className=" mx-3">
-                        <Link href="/help/user_inquiries" legacyBehavior><a className="no-underline hover:bg-gray-500 hover:text-white px-1  py-2 rounded-full" >1:1 문의</a></Link>
+                        <Link href="/help/user_inquiries" legacyBehavior>
+                            <a className="no-underline px-1 py-2 rounded-full focus:bg-gray-500 focus:text-white">1:1문의</a>
+                        </Link>
                     </li>
                     <li className=" mx-3 ">
-                        <Link href="./faq" legacyBehavior><a className="no-underline hover:bg-gray-500 hover:text-white px-1 py-2 rounded-full">자주 묻는 질문</a></Link>
+                        <Link href="./faq" legacyBehavior>
+                            <a className="no-underline px-1 py-2 rounded-full focus:bg-gray-500 focus:text-white">자주 묻는 질문</a>
+                        </Link>
                     </li>
                     <li className=" mx-3">
-                        <Link href="./announcements" legacyBehavior><a className="no-underline hover:bg-gray-500 hover:text-white px-1 py-2 rounded-full ">공지사항</a></Link>
+                        <Link href="./announcements" legacyBehavior>
+                            <a className="no-underline px-1 py-2 rounded-full focus:bg-gray-500 focus:text-white">공지사항</a>
+                        </Link>
                     </li>
                 </ul>
-                {/* 나머지 내용들 */}
             </div>
         </header>
     );

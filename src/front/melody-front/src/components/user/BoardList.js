@@ -51,7 +51,7 @@ const Page = ({ userAccountId }) => {
 
     return (
         <div className="container mx-auto">
-            <h2 className="text-2xl font-bold ">나의문의내역</h2>
+            <h2 className="text-2xl font-bold ">문의내역</h2>
             <div className="flex justify-end ">
                 <button onClick={deleteSelectedRows}>삭제</button>
             </div>
