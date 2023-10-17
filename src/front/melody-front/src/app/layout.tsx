@@ -47,7 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
     <html lang="en">
     <UserContextProvider>
       <body className={inter.className}>
-      <Header></Header>
+      {/*<Header></Header>*/}
       {children}
       <Footer />
       </body>

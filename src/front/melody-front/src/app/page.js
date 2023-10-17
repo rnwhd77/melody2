@@ -4,6 +4,7 @@ import Link from "next/link";
 import ClientComponent from "../components/ClientComponent";
 import {useContext} from "react";
 import {UserContext} from "../contexts/UserContext";
+import SeasonSlider from "../components/main/season/SeasonSlider";
 
 const Home = () => {
 
@@ -14,6 +15,7 @@ const Home = () => {
         <div className="px-4 py-8">
             <h1 className="text-3xl mb-4">Server Component</h1>
             <ClientComponent />
+            <SeasonSlider/>
             <h1 className="text-2xl mt-8">
                 <Link href="/login">Test</Link>
             </h1>
