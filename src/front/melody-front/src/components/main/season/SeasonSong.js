@@ -6,21 +6,21 @@ import {
     SeasonSongImageContainer,
     SeasonSongImageElement,
     SeasonSongText
-} from "./SeasonSlider";
+} from "../season/SeasonSlider";
 
 const SeasonSong = ({ songData }) => {
     return (
-        <div css={seasonSongStyles}>
-            <div css={imageContainerStyles}>
-                <img css={imageElementStyles} src={songData.image} alt={songData.title} />
-            </div>
-            <div css={textStyles}>
+        <>
+            <SeasonSongImageContainer>
+                <SeasonSongImageElement src={songData.image} alt={songData.title} />
+            </SeasonSongImageContainer>
+            <SeasonSongText>
                 <p className="season-song-text-p">
                     <span className="season-song-text-span">{songData.title}</span>
                     {songData.artist}
                 </p>
-            </div>
-        </div>
+            </SeasonSongText>
+        </>
     );
 };
 

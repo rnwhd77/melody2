@@ -159,7 +159,7 @@ function AlbumDetail(albumId) {
                                     </div>
                                 </div>
                                 <div className="play_with_me">
-                                    <div className="play_option">재생 버튼</div>
+                                    <div className="play_option">재생버튼</div>
 
                                     <LikeButton album={album} localLikes={album.likes} setLocalLikes={setLocalLikes} />
                                     <div className="more_option">더보기 버튼</div>
