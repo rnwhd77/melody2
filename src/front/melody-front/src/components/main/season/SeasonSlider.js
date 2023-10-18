@@ -4,8 +4,9 @@ import Slider from 'react-slick';
 
 import styled from 'styled-components';
 import SeasonSong from "./SeasonSong";
-import css from "styled-jsx/css";
+
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { NoSsr } from '@mui/base/NoSsr';
 
 export const SeasonContainer = styled.section`
   padding-top: 100px;
@@ -20,17 +21,17 @@ export const SeasonItem2 = styled.div`
   background: linear-gradient(#e2ae18, #7b28d2);
 `;
 
-export const SeasonItem3 = styled.div`
-  background: linear-gradient(#1a4851, #63adc1);
-`;
-
-export const SeasonItem4 = styled.div`
-  background: linear-gradient(#e48d0f, #008ac5);
-`;
-
-export const SeasonItem5 = styled.div`
-  background: linear-gradient(#ef7ba8, #0c0051);
-`;
+// export const SeasonItem3 = styled.div`
+//   background: linear-gradient(#1a4851, #63adc1);
+// `;
+//
+// export const SeasonItem4 = styled.div`
+//   background: linear-gradient(#e48d0f, #008ac5);
+// `;
+//
+// export const SeasonItem5 = styled.div`
+//   background: linear-gradient(#ef7ba8, #0c0051);
+// `;
 
 export const SeasonSlide = styled.div`
   display: flex;
@@ -248,30 +249,30 @@ const SeasonSlider = () => {
     };
 
     return (
-        <>
+        <NoSsr>
             <Slider {...settings}>
-                {/*<div>*/}
-                {/*    <SeasonItem>*/}
-                {/*        <SeasonSlide>*/}
-                {/*            <SeasonText>*/}
-                {/*                <span className="season-text-span">여름노래 기강잡는 <br/>추억의 썸머송</span>*/}
-                {/*                <p className="season-text-p">총 10곡 <b> | </b> #summer</p>*/}
-                {/*                <i className="bi bi-play-fill season-text-icon"></i>*/}
-                {/*            </SeasonText>*/}
-                {/*            <SeasonList>*/}
-                {/*                {songsChunks.map((chunk, index) => (*/}
-                {/*                    <SeasonSongs key={index}>*/}
-                {/*                        {chunk.map((song, songIndex) => (*/}
-                {/*                            <SeasonSongCss key={songIndex}>*/}
-                {/*                                <SeasonSong songData={song} />*/}
-                {/*                            </SeasonSongCss>*/}
-                {/*                        ))}*/}
-                {/*                    </SeasonSongs>*/}
-                {/*                ))}*/}
-                {/*            </SeasonList>*/}
-                {/*        </SeasonSlide>*/}
-                {/*    </SeasonItem>*/}
-                {/*</div>*/}
+                <div>
+                    <SeasonItem>
+                        <SeasonSlide>
+                            <SeasonText>
+                                <span className="season-text-span">여름노래 기강잡는 <br/>추억의 썸머송</span>
+                                <p className="season-text-p">총 10곡 <b> | </b> #summer</p>
+                                <i className="bi bi-play-fill season-text-icon"></i>
+                            </SeasonText>
+                            <SeasonList>
+                                {songsChunks.map((chunk, index) => (
+                                    <SeasonSongs key={index}>
+                                        {chunk.map((song, songIndex) => (
+                                            <SeasonSongCss key={songIndex}>
+                                                <SeasonSong songData={song} />
+                                            </SeasonSongCss>
+                                        ))}
+                                    </SeasonSongs>
+                                ))}
+                            </SeasonList>
+                        </SeasonSlide>
+                    </SeasonItem>
+                </div>
                 <div>
                     <SeasonItem2>
                         <SeasonSlide>
@@ -295,7 +296,7 @@ const SeasonSlider = () => {
                     </SeasonItem2>
                 </div>
             </Slider>
-        </>
+        </NoSsr>
     );
 };
 
