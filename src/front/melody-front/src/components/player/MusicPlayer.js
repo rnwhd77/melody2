@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHeart, faBackward, faPause, faPlay, faForward, faShuffle, faVolumeHigh, faVolumeXmark, faBars, faRepeat } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farHeart } from '@fortawesome/free-solid-svg-icons';
-import '../../../src/app/(player)/musicPlayer/MusicPlayer.css';
+// import '../../../src/app/(player)/musicPlayer/MusicPlayer.css';
 import axios from 'axios';
 import Info from "./Info";
 import Controls from "./Controls";
@@ -29,7 +29,7 @@ library.add(
 );
 
 // const url = "";
-const url1 = "https://store-mp3-temp-melody2.s3.amazonaws.com//test.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5QBN5WIEPCSLMNNB%2F20231018%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20231018T052437Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEIX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLW5vcnRoZWFzdC0yIkYwRAIgEHGmUcsB4%2BOWceJRL7tmoWmUEecby76u0lq6gjd8VaICIBQxyX9GiZ1dAcTIDuFyLOkhd9RoOL4UXLBLXfI%2BNrxZKvwCCJ7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMOTI3ODA5MjUzODk2Igz%2FtMmyF5zHT%2FPre6sq0AJKs7fZ6G%2BAjKY8f5UboezDXRw7v7zDRevy9mzlZhvmAQYOzbdmacrBj%2FhJQKLAVEV7%2BVZk8XP%2BtVBmY7MkSbFRfkwUmOMRgQKFsaR70RDHvzITVdU8V7PkKE7I4j8Gt%2FGUQuxXTvYHxgcknpsgkvknCJm7md7Vsn5w66jSAf4ylx0QIUXDPsAU5w5Wur39%2BylYkk7SIlcdglAntSzynO%2F6TMinmstkQWzPjDFZj785V4T%2B9r9v2kiSnIFrDtUgK%2Bjux6WQVWEVzRAXOkeeXv5LsJJdBS%2BAOBPzvVTM0PS0vog%2FlQXHwqmJTEOXSITDZyEPx69DgVtGpFuq4B766pVYpZ1viPo0r2Gnrysj%2FP5TC6enfgf66k7VQGh7XuKxxSl79hzweTFcDMvY0c9tDZyfyg8sw0ThRM3Y7Stm07yd%2FsAH29iamurlpYqVbYNf57gw%2B9W9qQY6nwHZgyfaO9ouD63SuZyXxdEvW4UvBuxuioDcj5gx6%2BHOVfKoIaPYO8WbmBQ7rxMX6hU2R1%2Fb2oLAzWRCbh1OSjrb2S3mF2VcCSChJfTCgo9X0uk8W6obrUwVyMcBF3Wy828HG7Ug6j4b9warCM0Ji0ZP0QO7dhxPtIpa2xKliicvp6k%2FjeidQAP4rbQsq6dLjblqG9zjKZO3G9rau8tQWBY%3D&X-Amz-Signature=0a04a13bc9954370feceba170cc2ee72203777b0df6916c9883b9f6954a929c1"
+const url1 = "https://store-mp3-temp-melody2.s3.amazonaws.com//test.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5QBN5WIENGR6FRCC%2F20231019%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20231019T084321Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEKH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLW5vcnRoZWFzdC0yIkgwRgIhAOl7a%2Bhys7vaiERWcLC3QDpqf%2B%2FP166uUJeMsY3qCtzuAiEA130L%2BaHKJ5oXKPMRMmOHVkA0sKFM0ChHamSG8mh1ErAq%2FAIIuv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw5Mjc4MDkyNTM4OTYiDBneFzmq1Ns4j9UdiCrQAmFM72JLD75ZwZ9GbyRmkPRD2Vyb4T1hygCKKdv4KruOPyt6CWXTV5%2FL9hs5E6OPyI4lGhyLaqErw8F99WJMU%2FQhDhv7iECYaJek93xuE6o0Vf7koOtOsgy6suDVL41A6yVoDy3Q4etpETCi5pHJ4UO4dpoEZl1X1miWC44JCLOoDjeGBEpgUV52wkaLhzVSZjiq72glMrAMBOUXLiNw7NuHUgRG1UKgUBd1fs2UygjlGbsEH%2BOvDbiiLY4S6owlYRnKcCA0zguJoeIuBifcsFOgCmXx2DJNX1uIlLusLuy3LNPxXqme3VfkrL4htDUIYXY6%2FwAuaDlyszT3BnmK%2B4mBd7%2FhMaVHyg0KHEwzDQLOXljcQy0irrca4XV%2B2F9v8MbYGmFtDfi5yTM%2FP%2FNrF0sC5VnSi%2FPFlkrDBuVP6AcZssSpoI4AfsipqoU0Pl3uoTCd2MOpBjqdAZRyx0rDsELO5v0ZD7%2FfK9gjrseu0tnXuPwJ8FODG14kS3iEhzvKw5MLgy0OkWyYcaSmZRmriaE542dBiWnhAL71Ic6L4dt6LmTkIsVqH0Hc1wUspbrhjMo8lI%2Fz1vDJDH5ik6ozPYwzPsnihj5laJjjVD%2Fyn5bpC5qm7vn3eJ2wH1wEcI8w4AbcqMgQDFmUoFvjUIfWKxRSJCv5yeE%3D&X-Amz-Signature=3e438c6ddbb3b9485b60cc4162926738c4d2bbdd0226d581ef13f7df7f198944"
 const url2 = "https://store-mp3-temp-melody2.s3.amazonaws.com//test.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5QBN5WIEIKDS6DEW%2F20231017%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20231017T052717Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG0aDmFwLW5vcnRoZWFzdC0yIkcwRQIhAItOi%2B39av7QkgnLlSMqSP80MIut%2FYymxyoQ3bXAe4EDAiACqAUHj59gURrSix3w4N%2B%2BLQlngQSwgmuQ8J2d6YvkHSr8AgiH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDkyNzgwOTI1Mzg5NiIMeVM9gnc0V9ZrZ4uuKtACg4793BXp8P0eFbVVmj8teUbwpfguwdyG31LaflRwRbePXMi7yMOFQSsgqQFVxAfjTNp5XYfMVqCccV4qi8XxONWO8PQwuDWcAFvtjwNHlphqK83899jB3oY7R846ihGuDks77SpBsetAbTyIcjbO8NqmXMwNbDnSgFSw%2FZ4TVDPTzRwyg7a5Oqz6v%2Bczkd7rYJhpjWiwobg7JO%2B3K0KJLmlxLjRPFiqRY%2BAA9%2FZMFZ%2FxzzDnd1531ozlFoUemmvbzF0rM%2FjZzNUJWceueq%2FafKW2F9%2FGS0OvN4cqgQEaUqso2xL4YUEsqp%2FHDHMHI0Jrtx3uSDKkp8o3JHwr1QvSE4X6QIK%2B%2FrFE69ZCu2IQdWqPGdYHYXYoBZ44N8T%2BvnKFAmo6BthPLi%2BZKj3IUxVI50UtfrU0ZqlpAqZZj85tkSJbYRCifuH7ne2L55YgE8bEMIq2uKkGOp4Bl%2ByuAjbhhtSuXLIfSMKipaTFhTZEGXTvKbR0IegcBDxnPji%2BHkk2S94vKxxRCeR8iyBCkUbOsaSWSoCBp5akwpBW3FFaB4bo7is2M0rt5XKl91CnjXur2NEhdjgKOeHT3c8vUW0yZIclgW2%2FL89ME0xMEdM5JnRPsVBfSzV5sZB3rExPa2%2FVt9piDdnMzzeFy7kJhDmVb6lE9V4aylQ%3D&X-Amz-Signature=8fdde399fedbe40799faeb8f9ca90d29af72706b4e3f7854325c691227c5cf70";
 const playlist = [
     {
@@ -65,25 +65,14 @@ function MusicPlayer({ song = { title: 'Song Title' }, album = { singerName: 'Ar
         loadSongs();
     }, []);
 
-    const handleEnded = () => {
-        // Repeat the current song
-        audioRef.current.currentTime = 0;
-        audioRef.current.play();
-    };
 
-    const handleNextClick = () => {
-        const nextSongIndex = (currentSongIndex + 1) % playlist.length;
-        setCurrentSongIndex(nextSongIndex);
-    };
 
-    const handlePlayPause = () => {
-        setIsPlaying(prevIsPlaying => !prevIsPlaying);
-    };
+
 
     return (
         <>
             {songs ? (
-                <div className="musicPlayerContainer">
+                <div className="mt-16 musicPlayerContainer">
                     {/*<div>*/}
                     {/*    <h3 className="text-xl font-semibold mb-2">Song List</h3>*/}
                     {/*    <ul>*/}
@@ -97,41 +86,18 @@ function MusicPlayer({ song = { title: 'Song Title' }, album = { singerName: 'Ar
                     {/*</div>*/}
 
                     <div id="player" className="playerContainer">
-                        {/*<Album/>*/}
-                        {/*<Info*/}
-                        {/*    song={songs[0]}*/}
-                        {/*    album={album}*/}
-                        {/*    isPlaying={isPlaying}*/}
-                        {/*/>*/}
                         {playlist[currentSongIndex] && (
                             <div className="reactPlayerWrapper">
                                 <MyCustomPlayer
                                     song={songs[0]}
                                     album={album}
                                     url={playlist[currentSongIndex].url}
-                                    playing={isPlaying}
-                                    handlePlayPause={handlePlayPause}
-                                    audioRef={audioRef}
-                                    playlist={playlist}
                                     currentSongIndex={currentSongIndex}
-                                    controls
-                                    onPlay={() => setIsPlaying(true)}
-                                    onPause={() => setIsPlaying(false)}
-                                    onProgress={(state) => setCurrentTime(state.playedSeconds)}
-                                    onDuration={(duration) => setDuration(duration)}
-                                    onEnded={handleEnded}
+                                    setCurrentSongIndex={setCurrentSongIndex}
                                 />
                             </div>
                         )}
-                        {/*<Controls*/}
-                        {/*    isPlaying={isPlaying}*/}
-                        {/*    handlePlayPause={handlePlayPause}*/}
-                        {/*    audioRef={audioRef}*/}
-                        {/*    playlist={playlist}*/}
-                        {/*    currentSongIndex={currentSongIndex}*/}
-                        {/*    setCurrentSongIndex={setCurrentSongIndex}*/}
-                        {/*/>*/}
-                        {/*<VolumeControl></VolumeControl>*/}
+
                     </div>
                 </div>
             ) : (

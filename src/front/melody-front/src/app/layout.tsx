@@ -50,6 +50,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
     <UserContextProvider>
       <body className={inter.className}>
           {/*<Header  />*/}
+          {/*<div className="mt-8"/>*/}
            {children}
           <Footer />
       </body>
