@@ -1,14 +1,10 @@
 "use client"
 import React, { useState, useEffect, useRef } from 'react';
-import ReactPlayer from "react-player";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHeart, faBackward, faPause, faPlay, faForward, faShuffle, faVolumeHigh, faVolumeXmark, faBars, faRepeat } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farHeart } from '@fortawesome/free-solid-svg-icons';
-// import '../../../src/app/(player)/musicPlayer/MusicPlayer.css';
 import axios from 'axios';
-import Info from "./Info";
-import Album from "./Album";
+
 import MyCustomPlayerVersionTwo from "./MyCustomPlayerVersionTwo";
 
 library.add(
@@ -42,13 +38,7 @@ const playlist = [
 ];
 
 function MusicPlayer({ song = { title: 'Song Title' }, album = { singerName: 'Artist Name' } }) {
-    const [currentTime, setCurrentTime] = useState(0);
-    const [duration, setDuration] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const audioRef = useRef(null); // audioRef 정의
     const [currentSongIndex, setCurrentSongIndex] = useState(0); // currentSongIndex를 정의하고 초기값 설정
-    // const [isShuffled, setIsShuffled] = useState(false);
-    // const [response, setResponse] = useState(null);
     const [songs, setSongs] = useState(null);
 
     const loadSongs = async () => {
@@ -72,33 +62,6 @@ function MusicPlayer({ song = { title: 'Song Title' }, album = { singerName: 'Ar
         <>
             {songs ? (
                 <div className="mt-16 musicPlayerContainer">
-                    {/*<div>*/}
-                    {/*    <h3 className="text-xl font-semibold mb-2">Song List</h3>*/}
-                    {/*    <ul>*/}
-                    {/*        {songs.map((song) => (*/}
-                    {/*            <li key={song.songId} className="border-b py-2">*/}
-                    {/*                <p>{song.title}</p>*/}
-                    {/*                <p>{song.songInfo}</p>*/}
-                    {/*            </li>*/}
-                    {/*        ))}*/}
-                    {/*    </ul>*/}
-                    {/*</div>*/}
-
-                    {/*<div id="player" className="playerContainer">*/}
-                    {/*    {playlist[currentSongIndex] && (*/}
-                    {/*        <div className="reactPlayerWrapper">*/}
-                    {/*            <MyCustomPlayer*/}
-                    {/*                song={songs[0]}*/}
-                    {/*                album={album}*/}
-                    {/*                url={playlist[currentSongIndex].url}*/}
-                    {/*                currentSongIndex={currentSongIndex}*/}
-                    {/*                setCurrentSongIndex={setCurrentSongIndex}*/}
-                    {/*            />*/}
-                    {/*        </div>*/}
-                    {/*    )}*/}
-
-                    {/*</div>*/}
-
                     <MyCustomPlayerVersionTwo
                         song={songs[currentSongIndex]}
                         playlistEl={playlist[currentSongIndex]}
@@ -106,7 +69,6 @@ function MusicPlayer({ song = { title: 'Song Title' }, album = { singerName: 'Ar
                         currentSongIndex={currentSongIndex}
                         setCurrentSongIndex={setCurrentSongIndex}
                     />
-
 
                 </div>
             ) : (

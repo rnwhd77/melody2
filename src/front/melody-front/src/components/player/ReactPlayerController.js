@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import VolumeControl from "./VolumeControl";
 
 function ReactPlayerController({
                       isPlaying,

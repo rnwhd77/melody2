@@ -1,8 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import ReactPlayer from 'react-player';
-import Controls from './Controls'; // Import your Controls component
 import TailwindPlayer from './TailwindPlayer';
-import ReactPlayerController from "./ReactPlayerController"; // Import your TailwindPlayer component
 
 const MyCustomPlayer2 = ({ song, playlistEl, list, currentSongIndex, setCurrentSongIndex }) => {
 
