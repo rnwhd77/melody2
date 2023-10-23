@@ -13,6 +13,7 @@ import PlayPauseButton from "./PlayPauseButton";
 import VolumeControl from "./VolumeControl";
 import Album from "./Album";
 import MyCustomPlayer from "./MyCustomPlayer";
+import MyCustomPlayerVersionTwo from "./MyCustomPlayerVersionTwo";
 
 library.add(
     faHeart,
@@ -29,15 +30,17 @@ library.add(
 );
 
 // const url = "";
-const url1 = "https://store-mp3-temp-melody2.s3.amazonaws.com//test.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5QBN5WIENGR6FRCC%2F20231019%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20231019T084321Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEKH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLW5vcnRoZWFzdC0yIkgwRgIhAOl7a%2Bhys7vaiERWcLC3QDpqf%2B%2FP166uUJeMsY3qCtzuAiEA130L%2BaHKJ5oXKPMRMmOHVkA0sKFM0ChHamSG8mh1ErAq%2FAIIuv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw5Mjc4MDkyNTM4OTYiDBneFzmq1Ns4j9UdiCrQAmFM72JLD75ZwZ9GbyRmkPRD2Vyb4T1hygCKKdv4KruOPyt6CWXTV5%2FL9hs5E6OPyI4lGhyLaqErw8F99WJMU%2FQhDhv7iECYaJek93xuE6o0Vf7koOtOsgy6suDVL41A6yVoDy3Q4etpETCi5pHJ4UO4dpoEZl1X1miWC44JCLOoDjeGBEpgUV52wkaLhzVSZjiq72glMrAMBOUXLiNw7NuHUgRG1UKgUBd1fs2UygjlGbsEH%2BOvDbiiLY4S6owlYRnKcCA0zguJoeIuBifcsFOgCmXx2DJNX1uIlLusLuy3LNPxXqme3VfkrL4htDUIYXY6%2FwAuaDlyszT3BnmK%2B4mBd7%2FhMaVHyg0KHEwzDQLOXljcQy0irrca4XV%2B2F9v8MbYGmFtDfi5yTM%2FP%2FNrF0sC5VnSi%2FPFlkrDBuVP6AcZssSpoI4AfsipqoU0Pl3uoTCd2MOpBjqdAZRyx0rDsELO5v0ZD7%2FfK9gjrseu0tnXuPwJ8FODG14kS3iEhzvKw5MLgy0OkWyYcaSmZRmriaE542dBiWnhAL71Ic6L4dt6LmTkIsVqH0Hc1wUspbrhjMo8lI%2Fz1vDJDH5ik6ozPYwzPsnihj5laJjjVD%2Fyn5bpC5qm7vn3eJ2wH1wEcI8w4AbcqMgQDFmUoFvjUIfWKxRSJCv5yeE%3D&X-Amz-Signature=3e438c6ddbb3b9485b60cc4162926738c4d2bbdd0226d581ef13f7df7f198944"
+const url1 ="https://store-mp3-temp-melody2.s3.amazonaws.com//test.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5QBN5WIEPDAOYUUL%2F20231023%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20231023T003823Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPn%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLW5vcnRoZWFzdC0yIkYwRAIgBL1bOYOq3rS101pSL%2FpEFot9lxTJ41fIuxjTCTZxOY0CIAlhx4FeHQ0J8F7%2BZb09Pi7skCfkDyADo48nCvSQWAImKvMCCCIQABoMOTI3ODA5MjUzODk2IgzSpjSpgLovWpzcUD4q0AKKA3TI2VRHUA2SUNaEvTQa2o%2BfxK%2FmJixsQmhmdmlddi10yDetB%2FBWRKTRB6zcqxfneVKLYfa%2BVUujnxMW%2FoN92knkWIhMmm%2BSkvs9wRFvcwN%2BiKeKyt6kPBOsmCBSH5hX%2FfSOZ1UM1%2Fe7r8e7YbxiUBcqM9HCkLRfDcDQReWiXzjUE%2BIi0OMFbHD6ua7C%2Ff5Pv042s8f%2BO8srG4Y5DycfoM7DlZlZ7xlFw3je%2FYTyeA1rU9w2Vjk3%2FmDkhX7yscXcLPYOoo7LWtA%2BEIpfN15F9hj%2B34gNI7hQwkdHuqPcrXBBSzNX21NDZsJ6sjac5g%2BIKzciU0Gqsj62MlUkkCw%2BpiLJZG3viD3yxPQ7UVvWGRS2JVfifhwZ46K4th%2B7qic9mGalZwuNyOkCjprAlpRDND8jxdBCzzKh6TKqiLSumfGaAk%2Bomr2IS3NnXooXXqEwyP%2FWqQY6nwEur4X1M7AoUEjTjX1gmq0oAy4dO%2Bql2N0gF7JOeOCuExySpipsnks1iFSFvEyoFsy0UQcI2UoAHbuKKfRUcBSusDfIzQkStmbA1hylh6zQv7nabuC9yrf3az0ibBCx9BxKS4g%2BUhIroVY075ISoGdf0mD4tTqqeQai4mxu%2F%2FiTEVC2ilGovOtzezGoZGCc4%2FDjVPYY02ri8k2vSyZ0WqA%3D&X-Amz-Signature=7ca17511352493595a9559c1b4d14514393e44b1617119b76680593ac201c1b4"
 const url2 = "https://store-mp3-temp-melody2.s3.amazonaws.com//test.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5QBN5WIEIKDS6DEW%2F20231017%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20231017T052717Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG0aDmFwLW5vcnRoZWFzdC0yIkcwRQIhAItOi%2B39av7QkgnLlSMqSP80MIut%2FYymxyoQ3bXAe4EDAiACqAUHj59gURrSix3w4N%2B%2BLQlngQSwgmuQ8J2d6YvkHSr8AgiH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDkyNzgwOTI1Mzg5NiIMeVM9gnc0V9ZrZ4uuKtACg4793BXp8P0eFbVVmj8teUbwpfguwdyG31LaflRwRbePXMi7yMOFQSsgqQFVxAfjTNp5XYfMVqCccV4qi8XxONWO8PQwuDWcAFvtjwNHlphqK83899jB3oY7R846ihGuDks77SpBsetAbTyIcjbO8NqmXMwNbDnSgFSw%2FZ4TVDPTzRwyg7a5Oqz6v%2Bczkd7rYJhpjWiwobg7JO%2B3K0KJLmlxLjRPFiqRY%2BAA9%2FZMFZ%2FxzzDnd1531ozlFoUemmvbzF0rM%2FjZzNUJWceueq%2FafKW2F9%2FGS0OvN4cqgQEaUqso2xL4YUEsqp%2FHDHMHI0Jrtx3uSDKkp8o3JHwr1QvSE4X6QIK%2B%2FrFE69ZCu2IQdWqPGdYHYXYoBZ44N8T%2BvnKFAmo6BthPLi%2BZKj3IUxVI50UtfrU0ZqlpAqZZj85tkSJbYRCifuH7ne2L55YgE8bEMIq2uKkGOp4Bl%2ByuAjbhhtSuXLIfSMKipaTFhTZEGXTvKbR0IegcBDxnPji%2BHkk2S94vKxxRCeR8iyBCkUbOsaSWSoCBp5akwpBW3FFaB4bo7is2M0rt5XKl91CnjXur2NEhdjgKOeHT3c8vUW0yZIclgW2%2FL89ME0xMEdM5JnRPsVBfSzV5sZB3rExPa2%2FVt9piDdnMzzeFy7kJhDmVb6lE9V4aylQ%3D&X-Amz-Signature=8fdde399fedbe40799faeb8f9ca90d29af72706b4e3f7854325c691227c5cf70";
 const playlist = [
     {
         title: "Attention",
+        artist : "New Jeans",
         url: url1,
     },
     {
         title: "Hype boy",
+        artist : "New Jeans",
         url: url2,
     },
 ];
@@ -85,20 +88,30 @@ function MusicPlayer({ song = { title: 'Song Title' }, album = { singerName: 'Ar
                     {/*    </ul>*/}
                     {/*</div>*/}
 
-                    <div id="player" className="playerContainer">
-                        {playlist[currentSongIndex] && (
-                            <div className="reactPlayerWrapper">
-                                <MyCustomPlayer
-                                    song={songs[0]}
-                                    album={album}
-                                    url={playlist[currentSongIndex].url}
-                                    currentSongIndex={currentSongIndex}
-                                    setCurrentSongIndex={setCurrentSongIndex}
-                                />
-                            </div>
-                        )}
+                    {/*<div id="player" className="playerContainer">*/}
+                    {/*    {playlist[currentSongIndex] && (*/}
+                    {/*        <div className="reactPlayerWrapper">*/}
+                    {/*            <MyCustomPlayer*/}
+                    {/*                song={songs[0]}*/}
+                    {/*                album={album}*/}
+                    {/*                url={playlist[currentSongIndex].url}*/}
+                    {/*                currentSongIndex={currentSongIndex}*/}
+                    {/*                setCurrentSongIndex={setCurrentSongIndex}*/}
+                    {/*            />*/}
+                    {/*        </div>*/}
+                    {/*    )}*/}
 
-                    </div>
+                    {/*</div>*/}
+
+                    <MyCustomPlayerVersionTwo
+                        song={songs[currentSongIndex]}
+                        playlistEl={playlist[currentSongIndex]}
+                        playlist={playlist}
+                        currentSongIndex={currentSongIndex}
+                        setCurrentSongIndex={setCurrentSongIndex}
+                    />
+
+
                 </div>
             ) : (
                 <p>No songs available.</p>

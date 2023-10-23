@@ -87,9 +87,13 @@ const MyCustomPlayer = ({ song, album, url,list, currentSongIndex, setCurrentSon
     const handleSeek = (e) => {
         if (!seeking) {
             const seekTo = (e.nativeEvent.offsetX / e.target.clientWidth) * 100;
-            setPlayed(seekTo);
-            const seekToTime = (seekTo / 100) * duration;
-            setCurrentTime(seekToTime);
+
+            // Ensure that seekTo is within valid bounds (0 to 100)
+            if (!isNaN(seekTo) && seekTo >= 0 && seekTo <= 100) {
+                setPlayed(seekTo);
+                const seekToTime = (seekTo / 100) * duration;
+                setCurrentTime(seekToTime);
+            }
         }
     };
 
