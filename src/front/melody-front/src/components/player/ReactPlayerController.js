@@ -20,7 +20,7 @@ function ReactPlayerController({
                 <FontAwesomeIcon icon="repeat" style={{ color: "#3d619e" }} />
             </div>
 
-            <div className="previous" onClick={handlePreviousClick}>
+            <div className="previous ml-4" onClick={handlePreviousClick}>
                 <FontAwesomeIcon icon="backward" />
             </div>
 
@@ -34,31 +34,32 @@ function ReactPlayerController({
                 </div>
             )}
 
-            <div className="next" onClick={handleNextClick}>
+            <div className="next ml-4" onClick={handleNextClick}>
                 <FontAwesomeIcon icon="forward" />
             </div>
 
-            <div className={`shuffle`} onClick={handleToggleShuffle}>
+            <div className="shuffle ml-4" onClick={handleToggleShuffle}>
                 <FontAwesomeIcon icon="shuffle" />
             </div>
 
-            <div className="volume" onClick={handleToggleMute}>
+            <div className="volume ml-4" onClick={handleToggleMute}>
                 {isMuted ? (
                     <FontAwesomeIcon icon="volume-mute" />
                 ) : (
                     <FontAwesomeIcon icon="volume-up" />
                 )}
-                <input
-                    type="range"
-                    value={isMuted ? 0 : volume}
-                    min="0"
-                    max="100"
-                    step="1"
-                    onChange={(e) => setVolume(e.target.value)}
-                />
+                {volume > 0 && (
+                    <input
+                        className="volumeRange"
+                        type="range"
+                        value={isMuted ? 0 : volume}
+                        min="0"
+                        max="100"
+                        step="1"
+                        onChange={(e) => setVolume(e.target.value)}
+                    />
+                )}
             </div>
-
-            {volume > 0 && <VolumeControl volume={volume} setVolume={setVolume} />}
         </div>
     );
 }

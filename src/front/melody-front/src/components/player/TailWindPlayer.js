@@ -1,6 +1,8 @@
-"use client"
+
 import ReactPlayerController from "./ReactPlayerController";
 import React from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+// import "./controller-add.css"
 
 export default function Component({
               playlistEl,
@@ -10,13 +12,27 @@ export default function Component({
               handlePreviousClick,
               handleToggleRepeat,
               handleToggleShuffle,
+              handleVolumeChange,
+              handleSeek,
               volume,
               setVolume,
+              played,
               isMuted,
               handleToggleMute,
+              currentTime,
+              duration,
 
 }) {
-    console.log(playlistEl);
+    // console.log(playlistEl);
+
+    const progress = (currentTime / duration) * 100;
+
+    // Function to format time in MM:SS
+    const formatTime = (time) => {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    };
 
     return (
         <div className="min-h-screen bg-gradient-to-r from-purple-300 via-pink-200 to-red-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 flex items-center justify-center">
@@ -120,30 +136,95 @@ export default function Component({
                         >
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
                         </svg>
-                        <div className="w-full mx-3">
+                        <div className="w-full mx-3" onClick={handleSeek}>
                             <div className="relative mt-1 h-1 bg-gray-200 rounded overflow-hidden dark:bg-gray-800">
-                                <div className="absolute left-0 top-0 h-full bg-yellow-500 w-1/2" />
+                                <div className="absolute left-0 top-0 h-full bg-yellow-500" style={{ width: `${played}%` }} />
                             </div>
                         </div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">50%</p>
+                        {/* Time */}
+                        <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-3">
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <span>
+                                    {`${Math.floor(currentTime / 60)}:${Math.floor(currentTime % 60).toString().padStart(2, '0')}`}
+                                </span>
+                                <span style={{ marginLeft: '5px' }}>
+                                    /  {`${Math.floor(duration / 60)}:${Math.floor(duration % 60).toString().padStart(2, '0')}`}
+                                </span>
+                            </div>
+                        </div>
+
+                        {/*<p className="text-sm text-gray-500 dark:text-gray-400">50%</p>*/}
                     </div>
-                    <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-3">
-                        <span>00:00</span>
-                        <span>3:35</span>
+
+                </div>
+
+                <div className="controls text-xs text-center flex relative items-center justify-center mt-6 cursor-pointer text-gray-500">
+                    <div className="repeat mr-8" onClick={handleToggleRepeat}>
+                        <FontAwesomeIcon icon="repeat" style={{ color: "#3d619e" }} />
+                    </div>
+
+                    <div className="previous ml-4">
+                        <FontAwesomeIcon icon="backward" />
+                    </div>
+
+                    {isPlaying ? (
+                        <div className="pause ml-4" onClick={handlePlayPause}>
+                            <FontAwesomeIcon icon="pause" />
+                        </div>
+                    ) : (
+                        <div className="play ml-4" onClick={handlePlayPause}>
+                            <FontAwesomeIcon icon="play" />
+                        </div>
+                    )}
+
+                    <div className="next ml-4" onClick={handleNextClick}>
+                        <FontAwesomeIcon icon="forward" />
+                    </div>
+
+                    <div className="shuffle ml-4" onClick={handleToggleShuffle}>
+                        <FontAwesomeIcon icon="shuffle" />
+                    </div>
+
+                    <div className="volume" onChange={handleVolumeChange}>
+                        {isMuted ? (
+                            <FontAwesomeIcon icon="volume-mute" />
+                        ) : (
+                            <FontAwesomeIcon icon="volume-up" />
+                        )}
+                        {volume > 0 && (
+                            <div className="volumeCtrl ">
+                                <div className="volumeBg "></div>
+                                <input
+                                    className="volumeRange"
+                                    type="range"
+                                    value={volume}
+                                    onChange={(e) => {
+                                        setVolume(e.target.value)
+                                    } }
+                                    min="0"
+                                    max="100"
+                                    step="1"
+
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
-                <ReactPlayerController
-                    isPlaying={isPlaying}
-                    handlePlayPause={handlePlayPause}
-                    handleNextClick={handleNextClick}
-                    handlePreviousClick={handlePreviousClick}
-                    handleToggleRepeat={handleToggleRepeat}
-                    handleToggleShuffle={handleToggleShuffle}
-                    volume={volume}
-                    setVolume={setVolume}
-                    isMuted={isMuted}
-                    handleToggleMute={handleToggleMute}
-                />
+
+
+
+                {/*<ReactPlayerController*/}
+                {/*    isPlaying={isPlaying}*/}
+                {/*    handlePlayPause={handlePlayPause}*/}
+                {/*    handleNextClick={handleNextClick}*/}
+                {/*    handlePreviousClick={handlePreviousClick}*/}
+                {/*    handleToggleRepeat={handleToggleRepeat}*/}
+                {/*    handleToggleShuffle={handleToggleShuffle}*/}
+                {/*    volume={volume}*/}
+                {/*    setVolume={setVolume}*/}
+                {/*    isMuted={isMuted}*/}
+                {/*    handleToggleMute={handleToggleMute}*/}
+                {/*/>*/}
             </div>
         </div>
     )
