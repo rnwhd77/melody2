@@ -61,32 +61,6 @@ public class ArtistController {
         return artistService.updateGroupArtist(id, updatedGroupArtist);
     }
 
-    // Search Artists by Name (both solo and group)
-//    @GetMapping("/search")
-//    public Map<String, List<?>> searchArtists(@RequestParam String name) {
-//        logger.warn(name);
-//
-//        Map<String, List<?>> artistResults = new HashMap<>();
-//
-//
-//        List<Object> artists = artistService.searchArtistsByName(name);
-//
-//        List<SoloArtist> soloArtists = artists.stream()
-//                .filter(artist -> artist instanceof SoloArtist)
-//                .map(artist -> (SoloArtist) artist)
-//                .collect(Collectors.toList());
-//
-//        List<GroupArtist> groupArtists = artists.stream()
-//                .filter(artist -> artist instanceof GroupArtist)
-//                .map(artist -> (GroupArtist) artist)
-//                .collect(Collectors.toList());
-//
-//        artistResults.put("soloArtists", soloArtists);
-//        artistResults.put("groupArtists", groupArtists);
-//
-//        return artistResults;
-//    }
-
     @GetMapping(path = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Object> searchArtists(@RequestParam String name) {
         logger.warn(name);

@@ -138,6 +138,7 @@ public class ArtistService {
         // Search for group artists using a loop
         List<GroupArtist> groupArtists = new ArrayList<>();
         for (Integer groupId : groupIds) {
+            logger.warn(String.valueOf(groupId));
             GroupArtist groupArtist = groupArtistRepository.findById(groupId).orElse(null);
             if (groupArtist != null) {
                 groupArtists.add(groupArtist);
@@ -146,11 +147,6 @@ public class ArtistService {
 
         return groupArtists;
     }
-
-
-
-
-
 
 
 
