@@ -33,6 +33,5 @@ public class Board {
 
 
 
-
     // Other album properties and relationships
 }

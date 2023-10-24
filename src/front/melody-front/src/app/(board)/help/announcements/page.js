@@ -1,12 +1,11 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Layout from "../../../../components/users/Layout";
-import Link from "next/link"
+import Layout from "../../../../components/csComponent/Layout";
 
 const Page = ({ userAccountId }) => {
     const [notice, setNotice] = useState(null);
-    const [selectedRows, setSelectedRows] = useState([]); // 선택한 행의 userAccountId를 저장하는 상태 변수
+    const [selectedNotice, setSelectedNotice] = useState(null);
 
     useEffect(() => {
         axios.get(`/api/user-notices`)
@@ -24,30 +23,50 @@ const Page = ({ userAccountId }) => {
 
     return (
         <Layout>
-        <div className="container mx-auto">
-            <table className="w-full border-collapse mt-4" >
-                <thead>
-                <tr className="text-black border-b mt-2 ">
-                    <th className="p-2" style={{ width: "5%", borderTop: "1px solid #ddd"}}>번호</th>
-                    <th className="p-2" style={{ width: "65%", borderTop: "1px solid #ddd" }}>제목</th>
-                    <th className="p-2" style={{ borderTop: "1px solid #ddd" }}>작성일</th>
-                </tr>
-                </thead>
-                <tbody>
+            <div className="container mx-auto mb-80">
+                        <table className="w-full border-collapse">
+                            <thead>
+                            <tr className="text-gray-400 border-b mt-2">
+                                <th className="p-2" style={{ width: "5%", borderTop: "1px solid #ddd" }}>번호</th>
+                                <th className="p-2" style={{ width: "65%", borderTop: "1px solid #ddd" }}>제목</th>
+                                <th className="p-2" style={{ width: "20%", borderTop: "1px solid #ddd" }}>등록일</th>
+                            </tr>
+                            </thead>
+                        </table>
                 {notice.map((a) => (
-                    <tr key={a.userAccountId} className="border-b">
-                        <td className="p-2">
-                        </td>
-                        <td className="p-2">{a.content}</td>
-                        <td className="p-2">{a.creationDate}</td>
-                    </tr>
+                    <div key={a.userAccountId}>
+                        <table className="w-full border-collapse">
+                            <tbody>
+                            <tr
+                                className="cursor-pointer hover:bg-gray-100"
+                                onClick={() => {
+                                    if (selectedNotice && selectedNotice.userAccountId === a.userAccountId) {
+                                        setSelectedNotice(null);
+                                    } else {
+                                        setSelectedNotice(a);
+                                    }
+                                }}
+                            >
+                                <td className="p-4" style={{ width: "5%", borderBottom: "1px solid #ddd" }}>{a.userAccountId}</td>
+                                <td className="p-4" style={{ width: "65%", borderBottom: "1px solid #ddd" }}>{a.noticeTitle}</td>
+                                <td className="p-4" style={{ width: "20%", borderBottom: "1px solid #ddd" }}>{a.creationDate}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        {selectedNotice && selectedNotice.userAccountId === a.userAccountId && (
+                            <div className="bg-gray-100 p-4 mt-4" key={`content-${selectedNotice.userAccountId}`} style={{ marginTop: "20px" }}>
+                                {selectedNotice?.noticeContent?.split('\n').map((sentence, index) => (
+                                    <p key={index} className="mt-4 ml-4 text-blue-600">
+                                        {sentence}
+                                    </p>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 ))}
-                </tbody>
-            </table>
-        </div>
+            </div>
         </Layout>
     );
 };
 
 export default Page;
-

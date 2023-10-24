@@ -16,7 +16,7 @@ public class Notice {
     @Column(name = "UserAccount_ID")
     private Long userAccountId;//
 
-    @Column(name = "Admin_ID", unique = true)
+    @Column(name = "Admin_ID")
     private String adminId;
 
     @Column(name = "Notice_Title")
@@ -25,8 +25,8 @@ public class Notice {
     @Column(name = "Notice_Content")
     private String noticeContent;
 
-    @Column(name = "Creation_Date")
-    private Date creationDate;
+    @Column(name = "Registration_Date")
+    private Date registrationDate;
 
 
 
