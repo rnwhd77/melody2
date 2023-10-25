@@ -15,6 +15,8 @@ function BoardForm() {
     const [board, setBoard] = useState([]);
     const [selectedRows, setSelectedRows] = useState([null]);
     const [selectedBoardItem, setSelectedBoardItem] = useState(null);
+    const [showInquiryHistory, setShowInquiryHistory] = useState(false);
+    const [showInquiryButton, setShowInquiryButton] = useState(false);
 
     const newBoard = {
         userAccountId,
@@ -47,6 +49,7 @@ function BoardForm() {
             if (response.ok) {
                 setBoard([...board, newBoard]);
                 alert('문의 접수가 완료되었습니다.');
+                setShowInquiryHistory(true);
             } else {
                 alert('Board creation failed. Please try again.');
             }
@@ -55,6 +58,17 @@ function BoardForm() {
             // Handle any network or other errors here
         }
     };
+    useEffect(() => {
+        // Check if the user has previously submitted inquiries
+        // If yes, show the inquiry history
+        if (board.length > 0) {
+            setShowInquiryHistory(true);
+        }
+        // If not, show the inquiry button
+        else {
+            setShowInquiryButton(true);
+        }
+    }, [board]);
 
     useEffect(() => {
         // selectedRows가 변경될 때마다 데이터를 다시 불러옵니다.
@@ -101,7 +115,7 @@ function BoardForm() {
             });
     };
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto mb-40">
             <section className="board-form" id="board-form">
                 <div className="section-inner">
                     <form onSubmit={handleSubmit} className="w-full inline-flex flex-wrap justify-content-center">
@@ -111,6 +125,7 @@ function BoardForm() {
                                     defaultValue={(userState.user && userState.user.accountId) || '로그인해주세요'}
                                     className="rounded border px-3 py-2"
                                     disabled={!userState.user}
+                                    hidden={true}
                                 />
                             </div>
                             <div>
@@ -157,19 +172,23 @@ function BoardForm() {
                                     <p>마. 신용정보의 수집 처리 및 이용 등에 관한 기록: 3년(신용정보의 이용 및 보호에 관한 법률)</p>
                                 </div>
                             </div>
+                            {showInquiryButton && (
                             <div className="flex justify-center">
                                 <input
                                     type="submit"
                                     value="문의하기"
-                                    className="bg-gray-400 text-white py-2 px-4  hover:bg-gray-600 cursor-pointer"
+                                    className="bg-gray-400 text-white py-3 px-20 hover:bg-gray-600 cursor-pointer text-xl"
                                 />
                             </div>
+                            )}
                         </div>
                     </form>
                 </div>
             </section>
-            <h2 className="text-2xl font-bold ">나의 문의내역</h2>
+
+            {showInquiryHistory && (
             <div className="container mx-auto mb-80">
+                <h2 className="text-2xl font-bold ">나의 문의내역</h2>
                 <div className="flex justify-end">
                     <button
                         onClick={handleDeleteSelectedRows}
@@ -214,6 +233,7 @@ function BoardForm() {
                     </div>
                     ))}
             </div>
+                )}
         </div>
     );
 }

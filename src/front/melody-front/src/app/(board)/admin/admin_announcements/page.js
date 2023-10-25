@@ -62,6 +62,7 @@ function BoardForm({ userAccountId }) {
                                     defaultValue={(userState.user && userState.user.accountId) || '로그인해주세요'}
                                     className="rounded border px-3 py-2"
                                     disabled={!userState.user}
+                                    hidden={true}
                                 />
                             </div>
                             <div>
@@ -73,6 +74,7 @@ function BoardForm({ userAccountId }) {
                                     style={{
                                         width: "100%"
                                     }}
+                                    placeholder={"제목을 입력해주세요."}
                                 />
                             </div>
                             <div>
@@ -82,6 +84,7 @@ function BoardForm({ userAccountId }) {
                                     onChange={(e) => setNoticeContent(e.target.value)}
                                     required
                                     className="rounded border px-3 py-2 text-sm"
+                                    placeholder={"내용을 입력해주세요."}
                                     style={{
                                         width: "100%"
                                     }}

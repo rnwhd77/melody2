@@ -19,7 +19,7 @@ function CommentDetail({ boardItem }) {
     const filteredComments = comments.filter((comment) => comment.postId === boardItem.userAccountId);
 
     return (
-        <div className="bg-gray-100 p-4 mt-4">
+        <div className="bg-gray-100 p-4">
             <h3 className="text-xl font-bold">
                 {filteredComments.every(comment => comment.replyStatus === 0)
                     ? "답변대기"

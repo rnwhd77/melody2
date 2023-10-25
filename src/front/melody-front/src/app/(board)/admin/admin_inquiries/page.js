@@ -43,8 +43,17 @@ const Page = ({ userAccountId }) => {
     });
 
     return (
-        <div className="container mx-auto">
-            <h2 className="text-2xl font-bold">문의내역</h2>
+        <div className="flex flex-col items-center justify-center mt-20">
+            <h2 className="text-4xl font-bold mb-8">관리자모드</h2>
+            <ul className="flex justify-center mb-8">
+                <li className=" mx-3">
+                    <Link href="/admin/administrator" legacyBehavior><a className="no-underline hover:bg-gray-300 hover:text-white px-2 py-2 ">공지글 확인</a></Link>
+                </li>
+                <li className=" mx-3 ">
+                    <Link href="/admin/admin_inquiries" legacyBehavior><a className="no-underline hover:bg-gray-300 hover:text-white px-2 py-2 ">1:1문의 확인</a></Link>
+                </li>
+            </ul>
+            <div className="container mx-auto mb-80">
             <table className="w-full border-collapse mt-4">
                 <thead className="text-gray-400 mt-2">
                 <tr className="border-b mt-2">
@@ -88,6 +97,7 @@ const Page = ({ userAccountId }) => {
                 </tbody>
             </table>
             <div className="text-gray-400 text-right mt-2 mb-40">✏️(답변작성)</div>
+        </div>
         </div>
     );
 };

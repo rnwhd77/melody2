@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -32,6 +32,9 @@ const Page = ({ userAccountId }) => {
         const confirmDelete = window.confirm(
             "답변내역을 \n삭제하시겠습니까?"
         );
+        if (!confirmDelete) {
+            return;
+        }
         axios.delete(`/api/user-comments/${selectedItems}`)
             .then((res) => {
                 // 삭제 요청이 성공하면 선택한 게시물을 화면에서 제거합니다.
