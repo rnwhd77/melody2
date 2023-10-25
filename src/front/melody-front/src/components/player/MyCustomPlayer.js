@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import ReactPlayer from 'react-player';
-import TailwindPlayer from './TailwindPlayer';
+import TailwindPlayer from './PlayerUI';
 
 const MyCustomPlayer = ({ song, playlistEl, list, currentSongIndex, setCurrentSongIndex }) => {
 
