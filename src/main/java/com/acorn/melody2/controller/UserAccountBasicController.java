@@ -35,6 +35,13 @@ public class UserAccountBasicController {
     }
 
     @PostMapping
+    public ResponseEntity<UserAccount> createUserAccount(@RequestBody UserAccount userAccount) {
+        //age group 계산해서 추가
+        String ageGroup = calculateAgeGroup(userAccount.getBirthDate());
+        userAccount.setAgeGroup(ageGroup);
+        UserAccount createdUserAccount = userAccountService.createUserAccount(userAccount);
+        return new ResponseEntity<>(createdUserAccount, HttpStatus.CREATED);
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<UserAccount> updateUserAccount(@PathVariable Long id, @RequestBody UserAccount updatedUserAccount) {
