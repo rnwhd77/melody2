@@ -26,7 +26,11 @@ function BoardForm() {
         creationDate: creationDate.toISOString().split('T')[0]
     };
     const handleSelectBoardItem = (boardItem) => {
-        setSelectedBoardItem(boardItem);
+        if (selectedBoardItem === boardItem) {
+            setSelectedBoardItem(null); // 이미 선택된 항목을 다시 선택하면 닫힘
+        } else {
+            setSelectedBoardItem(boardItem); // 선택되지 않은 항목을 선택하면 열림
+        }
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -59,12 +63,9 @@ function BoardForm() {
         }
     };
     useEffect(() => {
-        // Check if the user has previously submitted inquiries
-        // If yes, show the inquiry history
         if (board.length > 0) {
             setShowInquiryHistory(true);
         }
-        // If not, show the inquiry button
         else {
             setShowInquiryButton(true);
         }
@@ -108,12 +109,17 @@ function BoardForm() {
             .then((response) => {
                 setBoard(board.filter((a) => !selectedRows.includes(a.userAccountId)));
                 setSelectedRows([]); // 선택 해제
-                console.log("성공")
+                const confirmDelete = window.confirm(
+                    "삭제 완료 되었습니다."
+                );
             })
             .catch((err) => {
-                console.error("게시물 삭제에 실패했습니다.", err);
+                const confirmDelete = window.confirm(
+                    "답변작성 완료된 게시글은 삭제 할 수 없습니다. "
+                );
             });
     };
+
     return (
         <div className="container mx-auto mb-40">
             <section className="board-form" id="board-form">
@@ -185,7 +191,6 @@ function BoardForm() {
                     </form>
                 </div>
             </section>
-
             {showInquiryHistory && (
             <div className="container mx-auto mb-80">
                 <h2 className="text-2xl font-bold ">나의 문의내역</h2>

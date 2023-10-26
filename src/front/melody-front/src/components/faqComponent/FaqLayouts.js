@@ -1,9 +1,9 @@
-import Headers from "./Headers";
+import FaqHeaders from "./FaqHeaders";
 
 const Layout = ({ children }) => {
     return (
         <div>
-            <Headers />
+            <FaqHeaders />
             <div>{children}</div>
         </div>
     );
