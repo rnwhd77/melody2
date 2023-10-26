@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const FaqHeaders = () => {
+const Headers = () => {
     return (
         <header>
             <div className="container mx-auto">
@@ -41,4 +41,4 @@ const FaqHeaders = () => {
     );
 };
 
-export default FaqHeaders;
+export default Headers;

@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link';
 
-const CsHeader = () => {
+const Header = () => {
     return (
         <header>
             <div className="flex flex-col items-center justify-center mt-20">
@@ -24,4 +24,4 @@ const CsHeader = () => {
     );
 };
 
-export default CsHeader;
+export default Header;

@@ -10,31 +10,33 @@ import java.util.Optional;
 
 @Service
 public class NoticeService {
-    private final NoticeRepository noticeRepository;
+    private final NoticeRepository noticeRepository; // NoticeRepository로 수정
 
     @Autowired
-    public NoticeService(NoticeRepository noticeRepository) {
-        this.noticeRepository = noticeRepository;
+    public NoticeService(NoticeRepository noticeRepository) { // NoticeRepository로 수정
+        this.noticeRepository = noticeRepository; // NoticeRepository로 수정
     }
 
-    public List<Notice> getAllNotices() {
-        return noticeRepository.findAll();
+    public List<Notice> getAllNotices() { // Notice로 수정
+        return noticeRepository.findAll(); // NoticeRepository로 수정
     }
 
-    public Optional<Notice> getNoticeById(Long id) {
-        return noticeRepository.findById(id);
+    public Optional<Notice> getNoticeById(Long id) { // Notice로 수정
+        return noticeRepository.findById(id); // NoticeRepository로 수정
     }
 
-    public Notice createNotice(Notice notice) {
-        return noticeRepository.save(notice);
+    public Notice createNotice(Notice notice) { // Notice로 수정
+        // 필요한 경우 유효성 검사 또는 비즈니스 로직 추가 가능
+        return noticeRepository.save(notice); // NoticeRepository로 수정
     }
 
-    public Notice updateNotice(Long id, Notice updatedNotice) {
+    public Notice updateNotice(Long id, Notice updatedNotice) { // Notice로 수정
+        // 필요한 경우 유효성 검사 또는 비즈니스 로직 추가 가능
         updatedNotice.setUserAccountId(id);
-        return noticeRepository.save(updatedNotice);
+        return noticeRepository.save(updatedNotice); // NoticeRepository로 수정
     }
 
-    public void deleteNotice(Long id) {
-        noticeRepository.deleteById(id);
+    public void deleteNotice(Long id) { // Notice로 수정
+        noticeRepository.deleteById(id); // NoticeRepository로 수정
     }
 }

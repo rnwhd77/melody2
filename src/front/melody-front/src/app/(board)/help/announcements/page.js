@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CsLayout from "../../../../components/csComponent/CsLayout";
+import Layout from "../../../../components/csComponent/Layout";
 
 const Page = ({ userAccountId }) => {
     const [notice, setNotice] = useState(null);
@@ -23,14 +23,14 @@ const Page = ({ userAccountId }) => {
     }
 
     return (
-        <CsLayout>
+        <Layout>
             <div className="container mx-auto mb-80">
                 <table className="w-full border-collapse">
                     <thead>
                     <tr className="text-gray-400 border-b mt-2">
-                        <th className="py-2" style={{ width: "5%", borderTop: "1px solid #ddd" }}>번호</th>
-                        <th className="py-2" style={{ width: "60%", borderTop: "1px solid #ddd" }}>제목</th>
-                        <th className="py-2" style={{ width: "20%", borderTop: "1px solid #ddd" }}>등록일</th>
+                        <th className="p-2" style={{ width: "5%", borderTop: "1px solid #ddd" }}>번호</th>
+                        <th className="p-2" style={{ width: "65%", borderTop: "1px solid #ddd" }}>제목</th>
+                        <th className="p-2" style={{ width: "20%", borderTop: "1px solid #ddd" }}>등록일</th>
                     </tr>
                     </thead>
                 </table>
@@ -50,9 +50,9 @@ const Page = ({ userAccountId }) => {
                                 }}
                             >
                                 <td className="p-4" style={{ width: "5%", borderBottom: "1px solid #ddd" }}>{a.userAccountId}</td>
-                                <td className="py-4 px-0" style={{ width: "65%", borderBottom: "1px solid #ddd" }}>{a.noticeTitle}</td>
-                                <td className="py-4 px-0" style={{ width: "17%", borderBottom: "1px solid #ddd" }}>{a.registrationDate}</td>
-                                <td className="py-4 px-0" style={{ width: "5%", borderBottom: "1px solid #ddd" }}>
+                                <td className="p-4" style={{ width: "65%", borderBottom: "1px solid #ddd" }}>{a.noticeTitle}</td>
+                                <td className="p-4" style={{ width: "20%", borderBottom: "1px solid #ddd" }}>{a.creationDate}</td>
+                                <td className="p-2" style={{ width: "5%", borderBottom: "1px solid #ddd" }}>
                                     {isDetailVisible[index] ? '▲' : '▼'}
                                 </td>
                             </tr>
@@ -72,7 +72,7 @@ const Page = ({ userAccountId }) => {
                     </div>
                 ))}
             </div>
-        </CsLayout>
+        </Layout>
     );
 };
 
