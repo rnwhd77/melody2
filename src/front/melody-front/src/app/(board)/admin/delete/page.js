@@ -1,6 +1,7 @@
  "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import AdminLayout from "./../../../../components/adminComponent/AdminLayout"
 
 const Page = ({ userAccountId }) => {
     const [comments, setComments] = useState([]);
@@ -49,40 +50,42 @@ const Page = ({ userAccountId }) => {
 
 
     return (
-        <div className="container mx-auto mb-80">
-            <h2 className="text-2xl font-bold mb-10 ">답변내역</h2>
-            <div className="flex justify-end ">
-                <button onClick={deleteSelectedRows}>삭제</button>
-            </div>
-            <table className="w-full border-collapse">
-                <thead>
-                <tr className="text-gray-400 border-b mt-2">
-                    <th className="p-2" style={{ width: "5%", borderTop: "1px solid #ddd" }}>선택</th>
-                    <th className="p-2" style={{ width: "5%", borderTop: "1px solid #ddd" }}>글번호</th>
-                    <th className="p-2" style={{ width: "65%", borderTop: "1px solid #ddd" }}>답변내용</th>
-                </tr>
-                </thead>
-            </table>
-            {comments.map((a) => (
-                <div key={a.userAccountId}>
-                    <table className="w-full border-collapse">
-                        <tbody>
-                        <tr className="cursor-pointer hover-bg-gray-100">
-                            <td className="p-4" style={{ width: "5%", borderBottom: "1px solid #ddd" }}>
-                                <input
-                                    type="checkbox"
-                                    onChange={() => toggleSelectRow(a.userAccountId)}
-                                    checked={selectedItems.includes(a.userAccountId)}
-                                />
-                            </td>
-                            <td className="p-4" style={{ width: "5%", borderBottom: "1px solid #ddd" }}>{a.postId}</td>
-                            <td className="p-4" style={{ width: "65%", borderBottom: "1px solid #ddd" }}>{a.commentContent}</td>
-                        </tr>
-                        </tbody>
-                    </table>
+        <AdminLayout>
+            <div className="container mx-auto mb-80">
+                <h2 className="text-2xl font-bold mb-10 ">답변내역</h2>
+                <div className="flex justify-end ">
+                    <button onClick={deleteSelectedRows}>삭제</button>
                 </div>
-            ))}
-        </div>
+                <table className="w-full border-collapse">
+                    <thead>
+                    <tr className="text-gray-400 border-b mt-2">
+                        <th className="py-2" style={{ width: "5%", borderTop: "1px solid #ddd" }}>선택</th>
+                        <th className="py-2" style={{ width: "5%", borderTop: "1px solid #ddd" }}>글번호</th>
+                        <th className="py-2" style={{ width: "65%", borderTop: "1px solid #ddd" }}>답변내용</th>
+                    </tr>
+                    </thead>
+                </table>
+                {comments.map((a) => (
+                    <div key={a.userAccountId}>
+                        <table className="w-full border-collapse">
+                            <tbody>
+                            <tr className="cursor-pointer hover-bg-gray-100">
+                                <td className="py-4" style={{ width: "5%", borderBottom: "1px solid #ddd" }}>
+                                    <input
+                                        type="checkbox"
+                                        onChange={() => toggleSelectRow(a.userAccountId)}
+                                        checked={selectedItems.includes(a.userAccountId)}
+                                    />
+                                </td>
+                                <td className="py-4" style={{ width: "5%", borderBottom: "1px solid #ddd" }}>{a.postId}</td>
+                                <td className="py-4" style={{ width: "65%", borderBottom: "1px solid #ddd" }}>{a.commentContent}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                ))}
+            </div>
+        </AdminLayout>
     );
 };
 

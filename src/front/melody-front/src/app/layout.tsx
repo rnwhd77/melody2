@@ -58,6 +58,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
                     </Link>
                   </li>
               ))}
+
             </ul>
           </div>
         </header>

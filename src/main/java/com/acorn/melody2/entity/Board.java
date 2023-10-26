@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 
-@Data //자동으로 게터,세터 equals, hashCode, toString 메서드를 구현
-@NoArgsConstructor  // 매개변수 없는 기본 생성자를 자동으로 생성
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "board")
 public class Board {

@@ -1,11 +1,11 @@
-import Layout from '../../../../components/csComponent/Layout'
+import CsLayout from '../../../../components/csComponent/CsLayout'
 import BoardForm from "../../../../components/user/BoardForm";
 
 const ServicePage = () => {
     return (
-        <Layout>
+        <CsLayout>
                 <BoardForm/>
-        </Layout>
+        </CsLayout>
     );
 }
 
